@@ -5,7 +5,7 @@ function App() {
 
   useEffect(() => {
     fetch("/api")
-      .then((response) => response)
+      .then((response) => response.json())
       .then((data) => {
         setBackendData(data);
       });
