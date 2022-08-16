@@ -1,17 +1,35 @@
 const express = require("express");
 const app = express();
 const axios = require("axios");
+const dotenv = require("dotenv");
+const router = require("../server/routes/plans");
+const { _writeTest } = require("../server/modules/plansInput");
+// const db = require("../connections/local-heroku-db");
 
-app.listen(5000, () => {
-  console.log("server is running on port 5000");
+dotenv.config({ path: "C:/GitHub/final_project/server/.env" });
+
+app.listen(process.env.PORT || 8080, () => {
+  console.log(`server is running on port ${process.env.PORT || 8080}`);
 });
+
+app.use("/api/plan", router);
+
+// const _writeTest = (first_name) => {
+//   return db("fit_user").insert(first_name).returning("*");
+// };
+
+_writeTest("mika");
 
 app.get("/api", (req, res) => {
   res.json({ users: ["userOne", "userTwo", "userThree"] });
 });
 
+let planData = [];
+
 app.get("/api/ex", async (req, res) => {
   let plan = await retrieveInfo();
+  planData = plan.data;
+  console.log(planData);
   res.send(plan.data[0]);
 });
 
