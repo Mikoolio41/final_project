@@ -1,8 +1,19 @@
-const { _writeTest } = require("../modules/plansInput");
+// const { _readTest } = require("../modules/plansInput");
+const { _test1 } = require("../modules/plansInput");
 
-const writeTest = async (req, res) => {
+// const readTest = async (req, res) => {
+//   try {
+//     let result = await _readTest(req.body);
+//     res.send("data inserted");
+//   } catch (error) {
+//     console.log(error);
+//     res.status(404).json({ msg: "I failed" });
+//   }
+// };
+
+const test1 = async (req, res) => {
   try {
-    let result = await _writeTest("mika");
+    let result = await _test1("mika");
     res.send("data inserted");
   } catch (error) {
     console.log(error);
@@ -10,4 +21,4 @@ const writeTest = async (req, res) => {
   }
 };
 
-module.exports = { writeTest };
+module.exports = { test1 };

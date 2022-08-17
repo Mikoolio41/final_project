@@ -3,8 +3,11 @@ const app = express();
 const axios = require("axios");
 const dotenv = require("dotenv");
 const router = require("../server/routes/plans");
-const { _writeTest } = require("../server/modules/plansInput");
-// const db = require("../connections/local-heroku-db");
+const bp = require("body-parser");
+
+// const { _readTest } = require("../server/modules/plansInput");
+// const { readTest } = require("../server/controllers/plans");
+// const db = require("../server/connections/local-heroku-db");
 
 dotenv.config({ path: "C:/GitHub/final_project/server/.env" });
 
@@ -12,13 +15,33 @@ app.listen(process.env.PORT || 8080, () => {
   console.log(`server is running on port ${process.env.PORT || 8080}`);
 });
 
-app.use("/api/plan", router);
+app.use("/db", router);
+
+// const retest = () => {
+//   console.log(db.column("first_name", "last_name").select().from("fit_user"));
+// };
+
+// retest;
+
+// console.log(retest("mika"));
 
 // const _writeTest = (first_name) => {
 //   return db("fit_user").insert(first_name).returning("*");
 // };
 
-_writeTest("mika");
+// _writeTest(
+//   "mika",
+//   "bibas",
+//   "mikabibas@gmail.com",
+//   "1234",
+//   "23-04-1989",
+//   60,
+//   160,
+//   1
+// );
+
+// readTest("mika");
+// console.log(readTest("mika"));
 
 app.get("/api", (req, res) => {
   res.json({ users: ["userOne", "userTwo", "userThree"] });
