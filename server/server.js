@@ -15,8 +15,9 @@ app.listen(process.env.PORT || 8080, () => {
   console.log(`server is running on port ${process.env.PORT || 8080}`);
 });
 
-app.use("/db", router);
+app.use("/", router);
 
+app.use(bp.urlencoded({ extended: false }));
 // const retest = () => {
 //   console.log(db.column("first_name", "last_name").select().from("fit_user"));
 // };
