@@ -48,8 +48,6 @@ app.get("/api", (req, res) => {
   res.json({ users: ["userOne", "userTwo", "userThree"] });
 });
 
-let planData = [];
-
 app.get("/api/ex", async (req, res) => {
   let plan = await retrieveInfo();
   planData = plan.data;
@@ -57,16 +55,40 @@ app.get("/api/ex", async (req, res) => {
   res.send(plan.data[0]);
 });
 
+let plan;
+
 // function to get the data from the API
-let retrieveInfo = async () => {
+const retrieveInfo = async () => {
   const options = {
     method: "GET",
-    url: "https://exercisedb.p.rapidapi.com/exercises/bodyPartList",
+    url: "https://exercisedb.p.rapidapi.com/exercises/equipment/cable",
     headers: {
       "X-RapidAPI-Key": "743686ac41mshcbc2d35375e7615p134460jsn104c0b2bc83e",
       "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
     },
   };
   let response = await axios.request(options);
-  return response;
+  plan = response.data;
+  // console.log(plan);
+  // return plan;
 };
+// retrieveInfo();
+// let plan = retrieveInfo();
+// console.log(plan);
+
+const createPlan = async () => {
+  await retrieveInfo();
+  const filterEx = plan.filter((item) => {
+    return item.bodyPart == "back";
+  });
+  let firstIndex = Math.floor(Math.random() * filterEx.length);
+  let secondIndex = Math.floor(Math.random() * filterEx.length);
+  if (firstIndex === secondIndex) {
+    secondIndex = Math.floor(Math.random() * filterEx.length);
+  }
+  const newArray = filterEx.splice(0, 2, firstIndex, secondIndex);
+  console.log(firstIndex, secondIndex);
+  console.log(newArray);
+};
+
+createPlan();
