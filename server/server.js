@@ -1,16 +1,32 @@
 const express = require("express");
 const app = express();
-const axios = require("axios");
 const dotenv = require("dotenv");
 const router = require("../server/routes/plans");
 const bp = require("body-parser");
-
-// const { _readTest } = require("../server/modules/plansInput");
-// const { readTest } = require("../server/controllers/plans");
-// const db = require("../server/connections/local-heroku-db");
+const { auth } = require("express-openid-connect");
+const { createPlan, exerciseById } = require("../server/controllers/plans");
 
 dotenv.config({ path: "C:/GitHub/final_project/server/.env" });
 
+//auth0 required parameters
+const config = {
+  authRequired: false,
+  auth0Logout: true,
+  secret: "a long, randomly-generated string stored in env",
+  baseURL: "http://localhost:5004",
+  clientID: "YTON4ec1si9zLcf0RPWk26TH2URVFf3Y",
+  issuerBaseURL: "https://dev-qty-2pbd.us.auth0.com",
+};
+
+// auth router attaches /login, /logout, and /callback routes to the baseURL
+app.use(auth(config));
+
+// req.isAuthenticated is provided from the auth router
+app.get("/", (req, res) => {
+  res.send(req.oidc.isAuthenticated() ? "Logged in" : "Logged out");
+});
+
+//starting the process
 app.listen(process.env.PORT || 8080, () => {
   console.log(`server is running on port ${process.env.PORT || 8080}`);
 });
@@ -18,77 +34,53 @@ app.listen(process.env.PORT || 8080, () => {
 app.use("/", router);
 
 app.use(bp.urlencoded({ extended: false }));
-// const retest = () => {
-//   console.log(db.column("first_name", "last_name").select().from("fit_user"));
-// };
-
-// retest;
-
-// console.log(retest("mika"));
-
-// const _writeTest = (first_name) => {
-//   return db("fit_user").insert(first_name).returning("*");
-// };
-
-// _writeTest(
-//   "mika",
-//   "bibas",
-//   "mikabibas@gmail.com",
-//   "1234",
-//   "23-04-1989",
-//   60,
-//   160,
-//   1
-// );
-
-// readTest("mika");
-// console.log(readTest("mika"));
-
-app.get("/api", (req, res) => {
-  res.json({ users: ["userOne", "userTwo", "userThree"] });
-});
-
-app.get("/api/ex", async (req, res) => {
-  let plan = await retrieveInfo();
-  planData = plan.data;
-  console.log(planData);
-  res.send(plan.data[0]);
-});
-
-let plan;
-
-// function to get the data from the API
-const retrieveInfo = async () => {
-  const options = {
-    method: "GET",
-    url: "https://exercisedb.p.rapidapi.com/exercises/equipment/cable",
-    headers: {
-      "X-RapidAPI-Key": "743686ac41mshcbc2d35375e7615p134460jsn104c0b2bc83e",
-      "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
-    },
-  };
-  let response = await axios.request(options);
-  plan = response.data;
-  // console.log(plan);
-  // return plan;
-};
-// retrieveInfo();
-// let plan = retrieveInfo();
-// console.log(plan);
-
-const createPlan = async () => {
-  await retrieveInfo();
-  const filterEx = plan.filter((item) => {
-    return item.bodyPart == "back";
-  });
-  let firstIndex = Math.floor(Math.random() * filterEx.length);
-  let secondIndex = Math.floor(Math.random() * filterEx.length);
-  if (firstIndex === secondIndex) {
-    secondIndex = Math.floor(Math.random() * filterEx.length);
-  }
-  const newArray = filterEx.splice(0, 2, firstIndex, secondIndex);
-  console.log(firstIndex, secondIndex);
-  console.log(newArray);
-};
 
 createPlan();
+exerciseById();
+// let plan;
+
+// // function to get the data from the API
+// const exerciseByEquip = async () => {
+//   const options = {
+//     method: "GET",
+//     url: "https://exercisedb.p.rapidapi.com/exercises/equipment/cable",
+//     headers: {
+//       "X-RapidAPI-Key": "743686ac41mshcbc2d35375e7615p134460jsn104c0b2bc83e",
+//       "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
+//     },
+//   };
+//   let response = await axios.request(options);
+//   plan = response.data;
+// };
+
+// const createPlan = async () => {
+//   await exerciseByEquip();
+//   const filterEx = plan.filter((item) => {
+//     return item.bodyPart == "back";
+//   });
+//   let firstIndex = Math.floor(Math.random() * filterEx.length);
+//   let secondIndex = Math.floor(Math.random() * filterEx.length);
+//   if (firstIndex === secondIndex) {
+//     secondIndex = Math.floor(Math.random() * filterEx.length);
+//   }
+//   const newArray = filterEx.splice(0, 2, firstIndex, secondIndex);
+//   // console.log(firstIndex, secondIndex);
+//   // console.log(newArray);
+// };
+
+// createPlan();
+
+// const exerciseById = async () => {
+//   const options = {
+//     method: "GET",
+//     url: "https://exercisedb.p.rapidapi.com/exercises/exercise/0022",
+//     headers: {
+//       "X-RapidAPI-Key": "743686ac41mshcbc2d35375e7615p134460jsn104c0b2bc83e",
+//       "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
+//     },
+//   };
+//   let response = await axios.request(options);
+//   console.log(response.data);
+// };
+
+// exerciseById();

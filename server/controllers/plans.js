@@ -1,79 +1,57 @@
-// const { _readTest } = require("../modules/plansInput");
-const {
-  _test1,
-  getData,
-  insertData,
-  updateData,
-} = require("../modules/plansInput");
+const axios = require("axios");
+const { insertData } = require("../modules/plansInput");
 
-// const readTest = async (req, res) => {
-//   try {
-//     let result = await _readTest(req.body);
-//     res.send("data inserted");
-//   } catch (error) {
-//     console.log(error);
-//     res.status(404).json({ msg: "I failed" });
-//   }
-// };
+let plan;
 
-// const writeUser = async (req, res) => {
-//   try {
-//     let result = await insertUser("test", {
-//       username: "Shlomo",
-//       email: "shlomo@gmail.com",
-//     });
-//     console.log(result);
-//     res.send("success");
-//   } catch (error) {
-//     console.log(error);
-//     res.status(404).json({ msg: "I failed" });
-//   }
-// };
-
-const test1 = async (req, res) => {
-  try {
-    let result = await getData("fit_user", "*", { first_name: "mika" });
-    console.log(result);
-    res.send(result);
-  } catch (error) {
-    console.log(error);
-    res.status(404).json({ msg: "I failed" });
-  }
+// function to get the exercise by equipment data from the API
+const exerciseByEquip = async () => {
+  const options = {
+    method: "GET",
+    url: "https://exercisedb.p.rapidapi.com/exercises/equipment/cable",
+    headers: {
+      "X-RapidAPI-Key": "743686ac41mshcbc2d35375e7615p134460jsn104c0b2bc83e",
+      "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
+    },
+  };
+  let response = await axios.request(options);
+  plan = response.data;
 };
 
-const writeUser = async (req, res) => {
-  try {
-    let result = await insertData("fit_user", {
-      first_name: "Ehud",
-      last_name: "Miron",
-      email: "sfdf@ggdfg.co.il",
-      password: 1234,
-      birthdate: "1989-05-12",
-      weight: 45,
-      height: 170,
-      gender: 2,
-    });
-    console.log(result);
-    res.send("added info");
-  } catch (error) {
-    console.log(error);
-    res.status(404).json({ msg: "I failed" });
+//select 2 exercises from retreived data
+const createPlan = async () => {
+  await exerciseByEquip();
+  const filterEx = plan.filter((item) => {
+    return item.bodyPart == "back";
+  });
+  let firstIndex = Math.floor(Math.random() * filterEx.length);
+  let secondIndex = Math.floor(Math.random() * filterEx.length);
+  if (firstIndex === secondIndex) {
+    secondIndex = Math.floor(Math.random() * filterEx.length);
   }
+  const newArray = filterEx.splice(0, 2, firstIndex, secondIndex);
+  const obj = newArray.forEach((item) => [{ userid: 1, exid: item.id }]);
+  // const result = insertData("userplan", obj);
+  console.log(firstIndex, secondIndex);
+  console.log(obj);
+  // return result;
 };
 
-const updateUser = async (req, res) => {
-  try {
-    let result = await updateData(
-      "test",
-      { email: "ehud123@gmail.com" },
-      { username: "Ehud" }
-    );
-    console.log(result);
-    res.send("info updated");
-  } catch (error) {
-    console.log(error);
-    res.status(404).json({ msg: "I failed" });
-  }
+// createPlan();
+
+//retreive exercise by id data from api
+const exerciseById = async () => {
+  const options = {
+    method: "GET",
+    url: "https://exercisedb.p.rapidapi.com/exercises/exercise/0022",
+    headers: {
+      "X-RapidAPI-Key": "743686ac41mshcbc2d35375e7615p134460jsn104c0b2bc83e",
+      "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
+    },
+  };
+  let response = await axios.request(options);
+  console.log(response.data);
 };
 
-module.exports = { test1, writeUser, updateUser };
+// exerciseById();
+
+module.exports = { createPlan, exerciseById };
