@@ -7,7 +7,7 @@ let plan;
 const exerciseByEquip = async () => {
   const options = {
     method: "GET",
-    url: "https://exercisedb.p.rapidapi.com/exercises/equipment/cable",
+    url: "https://exercisedb.p.rapidapi.com/exercises/equipment/dumbbell",
     headers: {
       "X-RapidAPI-Key": "743686ac41mshcbc2d35375e7615p134460jsn104c0b2bc83e",
       "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
@@ -17,23 +17,52 @@ const exerciseByEquip = async () => {
   plan = response.data;
 };
 
+const bodyPartsArr = [
+  "cardio",
+  "back",
+  "chest",
+  "shoulders",
+  "upper arms",
+  "upper legs",
+  "waist",
+];
+
 //select 2 exercises from retreived data
 const createPlan = async () => {
   await exerciseByEquip();
-  const filterEx = plan.filter((item) => {
-    return item.bodyPart == "back";
-  });
-  let firstIndex = Math.floor(Math.random() * filterEx.length);
-  let secondIndex = Math.floor(Math.random() * filterEx.length);
-  if (firstIndex === secondIndex) {
-    secondIndex = Math.floor(Math.random() * filterEx.length);
+  for (let i = 0; i < bodyPartsArr.length; i++) {
+    const filterEx = plan.filter((item) => {
+      return item.bodyPart == bodyPartsArr[i];
+    });
+    let firstIndex = Math.floor(Math.random() * filterEx.length);
+    let secondIndex = Math.floor(Math.random() * filterEx.length);
+    if (firstIndex === secondIndex) {
+      secondIndex = Math.floor(Math.random() * filterEx.length);
+    }
+    // const userPlan = [
+    //   { userid: 1, exid: filterEx[firstIndex].id },
+    //   { userid: 1, exid: filterEx[secondIndex].id },
+    // ];
+    // console.log(userPlan);
+    console.log(firstIndex, secondIndex);
+    // const result = await insertData("userplan", userPlan);
+    // console.log(result);
   }
-  const newArray = filterEx.splice(0, 2, firstIndex, secondIndex);
-  const obj = newArray.forEach((item) => [{ userid: 1, exid: item.id }]);
-  // const result = insertData("userplan", obj);
-  console.log(firstIndex, secondIndex);
-  console.log(obj);
-  // return result;
+  // const filterEx = plan.filter((item) => {
+  //   return item.bodyPart == "chest";
+  // });
+  // let firstIndex = Math.floor(Math.random() * filterEx.length);
+  // let secondIndex = Math.floor(Math.random() * filterEx.length);
+  // if (firstIndex === secondIndex) {
+  //   secondIndex = Math.floor(Math.random() * filterEx.length);
+  // }
+  // const userPlan = [
+  //   { userid: 1, exid: filterEx[firstIndex].id },
+  //   { userid: 1, exid: filterEx[secondIndex].id },
+  // ];
+  // console.log(userPlan);
+  // const result = await insertData("userplan", userPlan);
+  // console.log(result);
 };
 
 // createPlan();
