@@ -62,4 +62,15 @@ const updateUser = async (req, res) => {
   }
 };
 
-module.exports = { readUser, writeUser, updateUser, insertData };
+const getPic = async (req, res) => {
+  try {
+    let result = await getData("exercises", "*", { id: "1255" });
+    console.log(JSON.stringify(result[0].gifurl));
+    res.send(JSON.stringify(result[0].gifurl));
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({ msg: "I failed" });
+  }
+};
+
+module.exports = { readUser, writeUser, updateUser, insertData, getPic };

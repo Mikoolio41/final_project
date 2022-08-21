@@ -5,6 +5,9 @@ const router = require("../server/routes/plans");
 const bp = require("body-parser");
 const { auth } = require("express-openid-connect");
 const { createPlan, exerciseById } = require("../server/controllers/plans");
+// const fs = require("fs");
+// const path = require("path");
+// const axios = require("axios");
 
 dotenv.config({ path: "C:/GitHub/final_project/server/.env" });
 
@@ -35,8 +38,8 @@ app.use("/", router);
 
 app.use(bp.urlencoded({ extended: false }));
 
-createPlan();
-exerciseById();
+// createPlan();
+// exerciseById();
 // let plan;
 
 // // function to get the data from the API

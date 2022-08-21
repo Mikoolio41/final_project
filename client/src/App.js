@@ -1,22 +1,18 @@
 import React, { useEffect, useState } from "react";
 
 function App() {
-  const [backendData, setBackendData] = useState([{}]);
-
+  const [url, setUrl] = useState([{}]);
   useEffect(() => {
-    fetch("/api")
+    fetch("/picture")
       .then((response) => response.json())
       .then((data) => {
-        setBackendData(data);
+        setUrl(data);
       });
   }, []);
+
   return (
     <div>
-      {typeof backendData.users === "undefined" ? (
-        <p>Loading...</p>
-      ) : (
-        backendData.users.map((user, i) => <p key={i}>{user}</p>)
-      )}
+      <img alt="" src={url}></img>
       <h1>hi</h1>
     </div>
   );
