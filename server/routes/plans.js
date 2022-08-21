@@ -8,7 +8,7 @@ const {
 const router = express.Router();
 
 //route to read info from db
-router.get("/", readUser);
+// router.get("/", readUser);
 
 //route to write info to db
 // router.get("/ehud", writeUser);
@@ -16,6 +16,7 @@ router.get("/", readUser);
 //route to update info in db
 router.get("/update", updateUser);
 
+//test getting gif
 router.get("/picture", getPic);
 
 module.exports = router;

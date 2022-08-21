@@ -1,15 +1,20 @@
 import React from "react";
 // import { router } from "/server/routes/plans";
+import Input from "../components/Input.js";
 
-function form() {
+function Form() {
   return (
     <div>
       <form>
-        {/* <img alt="" src="http://localhost:5004/picture"></img> */}
-        {/* <p>{http:\\localhost:5004/picture}</p> */}
+        <Input
+          name="first_name"
+          placeholder="First Name"
+          value=""
+          onChange=""
+        />
       </form>
     </div>
   );
 }
 
-export default form;
+export default Form;
