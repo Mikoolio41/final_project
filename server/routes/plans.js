@@ -1,16 +1,19 @@
 const express = require("express");
 const {
-  updateUser,
-  writeUser,
+  createPlan,
+  exerciseById,
   readUser,
+  writeUser,
   getPic,
-} = require("../modules/plansInput");
+  updateUser,
+  getExerciseByEquip,
+} = require("../controllers/plans");
 const router = express.Router();
 
-//route to read info from db
-// router.get("/", readUser);
+// route to read info from db
+router.get("/", readUser);
 
-//route to write info to db
+// route to write info to db
 // router.get("/ehud", writeUser);
 
 //route to update info in db

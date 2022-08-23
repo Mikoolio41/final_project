@@ -3,31 +3,12 @@ const app = express();
 const dotenv = require("dotenv");
 const router = require("../server/routes/plans");
 const bp = require("body-parser");
-const { auth } = require("express-openid-connect");
 const { createPlan, exerciseById } = require("../server/controllers/plans");
 // const fs = require("fs");
 // const path = require("path");
 // const axios = require("axios");
 
 dotenv.config({ path: "C:/GitHub/final_project/server/.env" });
-
-//auth0 required parameters
-const config = {
-  authRequired: false,
-  auth0Logout: true,
-  secret: "a long, randomly-generated string stored in env",
-  baseURL: "http://localhost:5004",
-  clientID: "YTON4ec1si9zLcf0RPWk26TH2URVFf3Y",
-  issuerBaseURL: "https://dev-qty-2pbd.us.auth0.com",
-};
-
-// auth router attaches /login, /logout, and /callback routes to the baseURL
-app.use(auth(config));
-
-// req.isAuthenticated is provided from the auth router
-app.get("/", (req, res) => {
-  res.send(req.oidc.isAuthenticated() ? "Logged in" : "Logged out");
-});
 
 //starting the process
 app.listen(process.env.PORT || 8080, () => {
