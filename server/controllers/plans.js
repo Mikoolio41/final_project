@@ -5,8 +5,8 @@ let plan;
 //fetching data from db with parameters
 const readUser = async (req, res) => {
   try {
-    let result = await getData("fit_user", "*", { first_name: "mika" });
-    console.log(result);
+    let result = await getData("fit_user", "*", { weight: "60" });
+    // console.log(result);
     res.send(result);
   } catch (error) {
     console.log(error);
@@ -62,8 +62,10 @@ const getPic = async (req, res) => {
 const getExerciseByEquip = async (req, res) => {
   try {
     let result = await getData("exercises", "*", { equipment: "dumbbell" });
-    console.log(result);
+    // console.log(result);
+    plan = result;
     res.send(result);
+    console.log(plan);
   } catch (error) {
     console.log(error);
     res.status(404).json({ msg: "I failed" });
@@ -92,8 +94,32 @@ const createPlan = async () => {
     if (firstIndex === secondIndex) {
       secondIndex = Math.floor(Math.random() * filterEx.length);
     }
-    console.log(firstIndex, secondIndex);
+    // console.log(firstIndex, secondIndex);
+    const userPlan = [
+      { userid: 1, exid: filterEx[firstIndex].id },
+      { userid: 1, exid: filterEx[secondIndex].id },
+    ];
+    console.log(userPlan);
+    // console.log(firstIndex, secondIndex);
+    const result = await insertData("userplan", userPlan);
+    console.log(result);
   }
+  // const filterEx = plan.filter((item) => {
+  //   return item.bodyPart == "chest";
+  // });
+  // let firstIndex = Math.floor(Math.random() * filterEx.length);
+  // let secondIndex = Math.floor(Math.random() * filterEx.length);
+  // if (firstIndex === secondIndex) {
+  //   secondIndex = Math.floor(Math.random() * filterEx.length);
+  // }
+  // const userPlan = [
+  //   { userid: 1, exid: filterEx[firstIndex].id },
+  //   { userid: 1, exid: filterEx[secondIndex].id },
+  // ];
+  // console.log(userPlan);
+  // const result = await insertData("userplan", userPlan);
+  // console.log(result);
+  // ]);
 };
 
 //retreive exercise by id data from DB
@@ -107,7 +133,6 @@ const exerciseById = async () => {
     console.log(error);
     res.status(404).json({ msg: "I failed" });
   }
-  console.log(response.data);
 };
 
 module.exports = {

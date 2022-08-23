@@ -16,6 +16,8 @@ router.get("/", readUser);
 // route to write info to db
 // router.get("/ehud", writeUser);
 
+router.get("/plan", createPlan);
+
 //route to update info in db
 router.get("/update", updateUser);
 
