@@ -1,4 +1,5 @@
 import React from "react";
+import Birthdate from "../components/Birthdate.js";
 // import { router } from "/server/routes/plans";
 import Gender from "../components/Gender.js";
 import Goal from "../components/Goal.js";
@@ -36,17 +37,10 @@ function UserInputForm() {
         </label>
       </div>
       <div className="input-container ic2">
-        <input
-          name="age"
-          className="input inputAge"
-          type="text"
-          id="age"
-          placeholder=" "
-        />
-        <div className="cut cut-short"></div>
-        <label className="placeholder" for="age">
-          Age
+        <label className="labelBirthdate" for="birthday">
+          Please enter your birthdate:
         </label>
+        <Birthdate />
         <label className="labelGender" for="gender">
           You identify as:
         </label>
@@ -54,6 +48,7 @@ function UserInputForm() {
         <label className="goal labelGoal" for="goal">
           What's your training goal?
         </label>
+
         <Goal name="goal" />
         <button className="submit" type="submit">
           Submit

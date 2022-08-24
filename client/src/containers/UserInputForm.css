@@ -116,8 +116,13 @@ body {
 .goal,
 .labelGoal,
 .gender,
-.labelGender {
+.labelGender,
+.labelBirthdate {
   color: white;
+  margin: 20px 0;
+}
+
+.calendar {
   margin: 20px 0;
 }
 
