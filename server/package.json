@@ -12,14 +12,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.27.2",
     "body-parser": "^1.20.0",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-openid-connect": "^2.8.0",
     "file-system": "^2.2.2",
     "knex": "^2.2.0",
-    "path": "^0.12.7",
     "pg": "^8.7.3"
   },
   "devDependencies": {

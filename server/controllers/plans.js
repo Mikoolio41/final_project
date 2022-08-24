@@ -1,4 +1,10 @@
-const { insertData, updateData, getData } = require("../modules/plansInput");
+const {
+  insertData,
+  updateData,
+  getData,
+  getLimitedData,
+  getDataEquip,
+} = require("../modules/plansInput");
 
 let plan;
 
@@ -6,7 +12,7 @@ let plan;
 const readUser = async (req, res) => {
   try {
     let result = await getData("fit_user", "*", { weight: "60" });
-    // console.log(result);
+    console.log(result);
     res.send(result);
   } catch (error) {
     console.log(error);
@@ -59,17 +65,18 @@ const getPic = async (req, res) => {
 };
 
 // function to get the exercise by equipment data from the DB
-const getExerciseByEquip = async (req, res) => {
-  try {
-    let result = await getData("exercises", "*", { equipment: "dumbbell" });
-    // console.log(result);
-    plan = result;
-    res.send(result);
-    console.log(plan);
-  } catch (error) {
-    console.log(error);
-    res.status(404).json({ msg: "I failed" });
-  }
+const getExerciseByEquip = async () => {
+  let result = await getDataEquip(
+    "exercises",
+    "*",
+    {
+      equipment: "dumbbell",
+    },
+    { equipment: "body weight" }
+  );
+  // console.log(result);
+  plan = result;
+  // console.log(plan);
 };
 
 const bodyPartsArr = [
@@ -85,41 +92,35 @@ const bodyPartsArr = [
 //select 2 exercises from retreived data
 const createPlan = async () => {
   await getExerciseByEquip();
+  console.log(plan.length);
   for (let i = 0; i < bodyPartsArr.length; i++) {
     const filterEx = plan.filter((item) => {
-      return item.bodyPart == bodyPartsArr[i];
+      return item.bodypart == bodyPartsArr[i];
     });
     let firstIndex = Math.floor(Math.random() * filterEx.length);
     let secondIndex = Math.floor(Math.random() * filterEx.length);
     if (firstIndex === secondIndex) {
       secondIndex = Math.floor(Math.random() * filterEx.length);
     }
-    // console.log(firstIndex, secondIndex);
     const userPlan = [
       { userid: 1, exid: filterEx[firstIndex].id },
       { userid: 1, exid: filterEx[secondIndex].id },
     ];
     console.log(userPlan);
-    // console.log(firstIndex, secondIndex);
     const result = await insertData("userplan", userPlan);
-    console.log(result);
+    console.log(result.length);
   }
-  // const filterEx = plan.filter((item) => {
-  //   return item.bodyPart == "chest";
-  // });
-  // let firstIndex = Math.floor(Math.random() * filterEx.length);
-  // let secondIndex = Math.floor(Math.random() * filterEx.length);
-  // if (firstIndex === secondIndex) {
-  //   secondIndex = Math.floor(Math.random() * filterEx.length);
-  // }
-  // const userPlan = [
-  //   { userid: 1, exid: filterEx[firstIndex].id },
-  //   { userid: 1, exid: filterEx[secondIndex].id },
-  // ];
-  // console.log(userPlan);
-  // const result = await insertData("userplan", userPlan);
-  // console.log(result);
-  // ]);
+};
+
+const getUserPlan = async (req, res) => {
+  try {
+    let result = await getData("userplan", "*", { userid: 1 });
+    console.log(result);
+    res.send(result);
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({ msg: "I failed" });
+  }
 };
 
 //retreive exercise by id data from DB
@@ -142,5 +143,6 @@ module.exports = {
   writeUser,
   getPic,
   updateUser,
+  getUserPlan,
   getExerciseByEquip,
 };
