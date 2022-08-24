@@ -12,10 +12,10 @@ function UserInputForm() {
       <div className="title">Let me create your workout plan!</div>
       <div className="subtitle">Please insert your info:</div>
       <div className="input-container ic1">
-        <Input
-          id="height"
+        <input
           className="input"
           type="text"
+          id="height"
           name="height"
           placeholder=" "
         />
@@ -25,7 +25,7 @@ function UserInputForm() {
         </label>
       </div>
       <div className="input-container ic2">
-        <Input
+        <input
           type="text"
           id="weight"
           className="input"
@@ -38,13 +38,25 @@ function UserInputForm() {
         </label>
       </div>
       <div className="input-container ic2">
-        <Birthdate type="date" name="birthday" />
+        <input
+          name="age"
+          className="input"
+          type="text"
+          id="age"
+          placeholder=" "
+        />
         <div className="cut cut-short"></div>
-        <label className="placeholder" for="birthday">
-          Birth date:
+        <label className="placeholder" for="age">
+          Age:
         </label>
-        <Gender className="" />
-        <Goal />
+        <label className="gender" for="gender">
+          You identify as:
+        </label>
+        <Gender className="gender" name="gender" />
+        <label className="goal" for="goal">
+          What's your training goal?
+        </label>
+        <Goal name="goal" />
         <button className="submit" type="submit">
           Submit
         </button>

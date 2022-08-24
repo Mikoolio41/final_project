@@ -1,18 +1,18 @@
 body {
   align-items: center;
-  background-color: rgb(182, 182, 182);
+  background-color: rgb(34, 34, 34);
   display: flex;
   justify-content: center;
   height: 100vh;
 }
 
 .form {
-  background-color: #292d53;
+  background-color: #222547;
   border-radius: 20px;
   box-sizing: border-box;
   height: 600px;
   padding: 20px;
-  width: 800px;
+  width: 400px;
 }
 
 .title {
@@ -46,7 +46,7 @@ body {
 }
 
 .input {
-  background-color: #303245;
+  background-color: #444762;
   border-radius: 12px;
   border: 0;
   box-sizing: border-box;
@@ -59,7 +59,7 @@ body {
 }
 
 .cut {
-  background-color: #292d53;
+  background-color: #222547;
   border-radius: 10px;
   height: 20px;
   left: 20px;
@@ -102,6 +102,15 @@ body {
 
 .input:focus ~ .placeholder {
   color: #dc2f55;
+}
+
+.goal {
+  padding-top: 10px;
+  color: white;
+}
+
+.gender {
+  color: white;
 }
 
 .submit {
