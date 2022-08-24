@@ -2,7 +2,7 @@ import React from "react";
 
 function Goal() {
   return (
-    <div>
+    <div className="goal">
       <select>
         <option value="none">-- Please select -- </option>
         <option value="Strength">Building Strength</option>

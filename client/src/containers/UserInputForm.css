@@ -10,9 +10,9 @@ body {
   background-color: #222547;
   border-radius: 20px;
   box-sizing: border-box;
-  height: 600px;
+  height: 700px;
   padding: 20px;
-  width: 400px;
+  width: 500px;
 }
 
 .title {
@@ -104,13 +104,21 @@ body {
   color: #dc2f55;
 }
 
-.goal {
-  padding-top: 10px;
-  color: white;
+.inputAge {
+  margin-bottom: 20px;
 }
 
-.gender {
+.femalebtn,
+.otherbtn {
+  margin-left: 30px;
+}
+
+.goal,
+.labelGoal,
+.gender,
+.labelGender {
   color: white;
+  margin: 20px 0;
 }
 
 .submit {
@@ -122,7 +130,7 @@ body {
   cursor: pointer;
   font-size: 18px;
   height: 50px;
-  margin-top: 38px;
+  margin-top: 15px;
   outline: 0;
   text-align: center;
   width: 100%;

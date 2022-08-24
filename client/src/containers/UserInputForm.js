@@ -1,10 +1,8 @@
 import React from "react";
 // import { router } from "/server/routes/plans";
-import Input from "../components/Input.js";
 import Gender from "../components/Gender.js";
 import Goal from "../components/Goal.js";
 import "../containers/UserInputForm.css";
-import Birthdate from "../components/Birthdate.js";
 
 function UserInputForm() {
   return (
@@ -21,7 +19,7 @@ function UserInputForm() {
         />
         <div className="cut"></div>
         <label className="placeholder" for="height">
-          Height:
+          Height
         </label>
       </div>
       <div className="input-container ic2">
@@ -34,26 +32,26 @@ function UserInputForm() {
         />
         <div className="cut"></div>
         <label className="placeholder" for="weight">
-          Weight:
+          Weight
         </label>
       </div>
       <div className="input-container ic2">
         <input
           name="age"
-          className="input"
+          className="input inputAge"
           type="text"
           id="age"
           placeholder=" "
         />
         <div className="cut cut-short"></div>
         <label className="placeholder" for="age">
-          Age:
+          Age
         </label>
-        <label className="gender" for="gender">
+        <label className="labelGender" for="gender">
           You identify as:
         </label>
-        <Gender className="gender" name="gender" />
-        <label className="goal" for="goal">
+        <Gender name="gender" />
+        <label className="goal labelGoal" for="goal">
           What's your training goal?
         </label>
         <Goal name="goal" />
