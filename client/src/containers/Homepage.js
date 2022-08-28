@@ -7,7 +7,7 @@ function Homepage() {
   return (
     <div className="container">
       <LoginBtn />
-      <RegisterBtn />
+      <RegisterBtn path="/register" />
     </div>
   );
 }
