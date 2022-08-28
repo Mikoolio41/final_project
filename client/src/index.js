@@ -5,12 +5,14 @@ import "./index.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Image from "../src/components/Image";
 import Homepage from "./containers/Homepage";
+import Signup from "./containers/Signup";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Homepage />} />
+      <Route path="/register" element={<Signup />} />
       <Route path="/home" element={<Image />} />
       {/* <Route path="/" element={<Form />} /> */}
     </Routes>
