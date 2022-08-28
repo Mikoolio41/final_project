@@ -2,7 +2,6 @@ import React from "react";
 import Birthdate from "../components/Birthdate.js";
 // import { router } from "/server/routes/plans";
 import Gender from "../components/Gender.js";
-import Goal from "../components/Goal.js";
 import "../containers/UserInputForm.css";
 
 function UserInputForm() {
@@ -20,7 +19,7 @@ function UserInputForm() {
         />
         <div className="cut"></div>
         <label className="placeholder" for="height">
-          Height
+          Height in cm
         </label>
       </div>
       <div className="input-container ic2">
@@ -33,7 +32,7 @@ function UserInputForm() {
         />
         <div className="cut"></div>
         <label className="placeholder" for="weight">
-          Weight
+          Weight in kg
         </label>
       </div>
       <div className="input-container ic2">
@@ -48,8 +47,7 @@ function UserInputForm() {
         <label className="goal labelGoal" for="goal">
           What's your training goal?
         </label>
-
-        <Goal name="goal" />
+        {/* <Goal name="goal" /> */}
         <button className="submit" type="submit">
           Submit
         </button>

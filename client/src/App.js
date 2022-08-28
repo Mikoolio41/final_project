@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-// import LogoutButton from "./components/LogoutButton";
-// import Profile from "./components/Profile";
-import UserInputForm from "./containers/UserInputForm";
+// import UserInputForm from "./containers/UserInputForm";
+import "./App.css";
 
 function App() {
   const [url, setUrl] = useState([{}]);
@@ -15,10 +14,7 @@ function App() {
 
   return (
     <div>
-      {/* <img alt="" src={url}></img> */}
-      <UserInputForm />
-      {/* <LogoutButton /> */}
-      {/* <Profile /> */}
+      <img alt="" src={url}></img>
     </div>
   );
 }
