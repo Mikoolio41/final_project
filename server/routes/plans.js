@@ -8,6 +8,7 @@ const {
   updateUser,
   getExerciseByEquip,
   getUserPlan,
+  insertUserDb,
 } = require("../controllers/plans");
 const router = express.Router();
 
@@ -26,5 +27,7 @@ router.get("/userplan", getUserPlan);
 
 //test getting gif
 router.get("/picture", getPic);
+
+router.post("/register", insertUserDb);
 
 module.exports = router;

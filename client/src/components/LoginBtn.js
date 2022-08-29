@@ -4,7 +4,7 @@ function LoginBtn() {
   return (
     <div>
       <button className="loginBtn button-64">
-        <span class="text">Login</span>
+        <span className="text">Login</span>
       </button>
     </div>
   );

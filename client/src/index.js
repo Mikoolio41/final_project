@@ -14,7 +14,6 @@ root.render(
       <Route path="/" element={<Homepage />} />
       <Route path="/register" element={<Signup />} />
       <Route path="/home" element={<Image />} />
-      {/* <Route path="/" element={<Form />} /> */}
     </Routes>
   </BrowserRouter>
 );

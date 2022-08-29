@@ -11,7 +11,7 @@ function RegisterBtn() {
         }}
         className="registerBtn button-64"
       >
-        <span class="text">Register</span>
+        <span className="text">Register</span>
       </button>
     </div>
   );

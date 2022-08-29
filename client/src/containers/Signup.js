@@ -17,16 +17,7 @@ function Signup() {
   const [gender, setGender] = useState();
   const [birthdate, setBirthdate] = useState();
 
-  // const handleChange = (e) => {
-  //   updateFormData({
-  //     // ...formData,
-  //     [e.target.name]: e.target.value.trim(),
-
-  //   });
-  // };
-
   const changeGender = (e) => {
-    console.log(e.target.value);
     setGender(e.target.value);
   };
 
@@ -35,24 +26,22 @@ function Signup() {
       <form
         onSubmit={async (event) => {
           event.preventDefault();
-          let userObj = {
+          let userData = {
             first_name: first_name,
             last_name: last_name,
             email: email,
             password: password.password,
-            height: height,
-            weight: weight,
-            gender: gender,
             birthdate: birthdate,
+            weight: weight,
+            height: height,
+            gender: gender,
           };
-          console.log(userObj);
           const response = await fetch("/register", {
             method: "POST",
             headers: {
-              Accept: "application/json",
               "Content-Type": "application/json",
             },
-            body: `{ "userToDb": "${userObj}" }`,
+            body: JSON.stringify(userData),
           });
           console.log(await response.text());
         }}
