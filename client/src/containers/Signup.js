@@ -33,7 +33,7 @@ function Signup() {
   return (
     <div className="form">
       <form
-        onSubmit={(event) => {
+        onSubmit={async (event) => {
           event.preventDefault();
           let userObj = {
             first_name: first_name,
@@ -46,6 +46,15 @@ function Signup() {
             birthdate: birthdate,
           };
           console.log(userObj);
+          const response = await fetch("/register", {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: `{ "userToDb": "${userObj}" }`,
+          });
+          console.log(await response.text());
         }}
       >
         <div className="title">Please fill out the info below</div>
