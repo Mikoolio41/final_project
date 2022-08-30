@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import "./UserInputForm.css";
+import "./Signup.css";
 
 let regexPass = new RegExp("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,15}$");
 

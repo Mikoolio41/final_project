@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import Gender from "../components/Gender.js";
-import "./UserInputForm.css";
+import "./Signup.css";
 
 let regexPass = new RegExp("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,15}$");
 
@@ -43,7 +43,7 @@ function Signup() {
           console.log(await response.text());
         }}
       >
-        <div className="title">Please fill out the info below</div>
+        <div className="titleRegister">Please fill out the info below</div>
         {/* <div className="subtitle">Please insert your info:</div> */}
         <div className="input-container ic1">
           <input
