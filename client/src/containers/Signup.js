@@ -98,7 +98,9 @@ function Signup() {
               if (e.target.value.match(regexPass) != null) {
                 setPassword({ password: e.target.value });
               } else {
-                alert(`1 Uppercase\n1 Lowercase\n1 Digit\n8-15 Characters`);
+                alert(
+                  `Password must contain at least:\n\n1 Uppercase\n1 Lowercase\n1 Digit\n8-15 Characters`
+                );
               }
             }}
           />

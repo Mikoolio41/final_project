@@ -7,6 +7,7 @@ import Image from "../src/components/Image";
 import Homepage from "./containers/Homepage";
 import Signup from "./containers/Signup";
 import Login from "./containers/Login";
+import Profile from "./containers/Profile";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -16,6 +17,7 @@ root.render(
       <Route path="/register" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       <Route path="/home" element={<Image />} />
+      <Route path="/profile" element={<Profile />} />
     </Routes>
   </BrowserRouter>
 );
