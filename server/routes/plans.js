@@ -29,5 +29,6 @@ router.get("/userplan", getUserPlan);
 router.get("/picture", getPic);
 
 router.post("/register", insertUserDb);
+// router.post("/login", userLogin);
 
 module.exports = router;

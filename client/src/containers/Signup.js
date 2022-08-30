@@ -1,13 +1,10 @@
-import React from "react";
+import { React, useState } from "react";
 import Gender from "../components/Gender.js";
 import "./UserInputForm.css";
-import { useState } from "react";
 
 let regexPass = new RegExp("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,15}$");
 
 function Signup() {
-  // const [formData, updateFormData] = React.useState();
-  // const [pass, setPass] = useState();
   const [first_name, setFirst_name] = useState();
   const [last_name, setLast_name] = useState();
   const [email, setEmail] = useState();
