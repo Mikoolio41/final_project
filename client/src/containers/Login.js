@@ -26,7 +26,7 @@ function Login() {
           console.log(await response.text());
         }}
       >
-        <div className="title">Please login</div>
+        <div className="titleLogin">Please login</div>
         {/* <div className="subtitle">Please insert your info:</div> */}
         <div className="input-container ic1">
           <input

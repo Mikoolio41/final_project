@@ -15,7 +15,8 @@ body {
   width: 550px;
 }
 
-.titleRegister {
+.titleRegister,
+.titleLogin {
   color: #eee;
   font-family: sans-serif;
   font-size: 36px;
