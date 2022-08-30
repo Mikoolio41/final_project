@@ -151,12 +151,20 @@ const insertUserDb = async (req, res) => {
 const userLogin = async (req, res) => {
   console.log(await req.body);
   try {
-    let result = await getData("fit_user", req.body);
+    let result = await getData("fit_user", ("email", "password"), {
+      email: req.body.email,
+    });
     console.log(result);
-    res.send(result);
+    if (result.length == 0) {
+      res.send("you're not registered");
+    } else if (result.length > 0 && result[0].password === req.body.password) {
+      res.send("welcome");
+    } else {
+      res.send("password not correct");
+    }
   } catch (error) {
     console.log(error);
-    res.status(404).json({ msg: "could not insert user" });
+    res.status(404).json({ msg: "could not read user" });
   }
 };
 
@@ -170,5 +178,5 @@ module.exports = {
   getUserPlan,
   getExerciseByEquip,
   insertUserDb,
-  // userLogin
+  userLogin,
 };

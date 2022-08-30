@@ -1,11 +1,13 @@
 import { React, useState } from "react";
 import "./Signup.css";
+import { useNavigate } from "react-router-dom";
 
 let regexPass = new RegExp("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,15}$");
 
 function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  let navigate = useNavigate();
 
   return (
     <div className="form">
@@ -23,7 +25,11 @@ function Login() {
             },
             body: JSON.stringify(userLogin),
           });
-          console.log(await response.text());
+          let userLoggedIn = await response.text();
+          console.log(userLoggedIn);
+          if (userLoggedIn === "welcome") {
+            navigate("/userplan");
+          }
         }}
       >
         <div className="titleLogin">Please login</div>

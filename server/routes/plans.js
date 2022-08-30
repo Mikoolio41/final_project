@@ -9,6 +9,7 @@ const {
   getExerciseByEquip,
   getUserPlan,
   insertUserDb,
+  userLogin,
 } = require("../controllers/plans");
 const router = express.Router();
 
