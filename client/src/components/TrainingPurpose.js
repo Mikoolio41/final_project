@@ -8,7 +8,7 @@ function TrainingPurpose() {
         <input type="radio" name="option" />
         <i className="toggle icon icon-arrow-down"></i>
         <i className="toggle icon icon-arrow-up"></i>
-        <span className="placeholder">What is your training purpose --</span>
+        <span className="placeholderTr">What is your training purpose --</span>
         <label className="option">
           <input type="radio" name="option" />
           <span className="title animated fadeIn">Build Strength</span>
