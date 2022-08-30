@@ -148,17 +148,17 @@ const insertUserDb = async (req, res) => {
   }
 };
 
-// const userLogin = async (req, res) => {
-//   console.log(await req.body);
-//   try {
-//     let result = await getData("fit_user", req.body);
-//     console.log(result);
-//     res.send(result);
-//   } catch (error) {
-//     console.log(error);
-//     res.status(404).json({ msg: "could not insert user" });
-//   }
-// };
+const userLogin = async (req, res) => {
+  console.log(await req.body);
+  try {
+    let result = await getData("fit_user", req.body);
+    console.log(result);
+    res.send(result);
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({ msg: "could not insert user" });
+  }
+};
 
 module.exports = {
   createPlan,
