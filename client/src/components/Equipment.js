@@ -52,11 +52,9 @@ function Equipment() {
         <input type="checkbox" id="checkbox-rect12" name="check"></input>
         <label htmlFor="checkbox-rect12">Leverage Machine</label>
       </div>
-      <div className="item">
-        <div className="checkbox-rect">
-          <input type="checkbox" id="checkbox-rect13" name="check"></input>
-          <label htmlFor="checkbox-rect13">Medicine Ball</label>
-        </div>
+      <div className="checkbox-rect">
+        <input type="checkbox" id="checkbox-rect13" name="check"></input>
+        <label htmlFor="checkbox-rect13">Medicine Ball</label>
       </div>
       <div className="checkbox-rect">
         <input type="checkbox" id="checkbox-rect14" name="check"></input>

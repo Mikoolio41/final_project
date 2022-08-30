@@ -4,7 +4,7 @@ import "./TrainingPurpose.css";
 function TrainingPurpose() {
   return (
     <div>
-      <div className="select animated zoomIn">
+      <div className="select animated zoomIn purposeContainer">
         <input type="radio" name="option" />
         <i className="toggle icon icon-arrow-down"></i>
         <i className="toggle icon icon-arrow-up"></i>

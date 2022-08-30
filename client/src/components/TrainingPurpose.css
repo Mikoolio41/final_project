@@ -5,10 +5,15 @@
 
 body {
   width: 100%;
-  min-height: 900px;
+  min-height: 800px;
   margin: 3em auto;
   font-family: "Roboto Mono";
   letter-spacing: 1px;
+}
+
+.purposeContainer {
+  position: absolute;
+  top: 25vh;
 }
 
 .select {
