@@ -4,9 +4,10 @@ const {
   getData,
   getLimitedData,
   getDataEquip,
+  getJoinData,
 } = require("../modules/plansInput");
 
-let plan;
+// let plan;
 
 //fetching data from db with parameters
 const readUser = async (req, res) => {
@@ -65,19 +66,18 @@ const getPic = async (req, res) => {
 };
 
 // function to get the exercise by equipment data from the DB
-const getExerciseByEquip = async () => {
-  let result = await getDataEquip(
-    "exercises",
-    "*",
-    {
-      equipment: "dumbbell",
-    },
-    { equipment: "body weight" }
-  );
-  // console.log(result);
-  plan = result;
-  // console.log(plan);
-};
+// const getExerciseByEquip = async (req, res) => {
+//   console.log(req.body);
+//   try {
+//     let result = await getDataEquip("exercises", "*", ("equipment", req.body));
+//     // console.log(result);
+//     plan = result;
+//     console.log(plan);
+//   } catch (error) {
+//     console.log(error);
+//     res.status(404).json({ msg: "bummer" });
+//   }
+// };
 
 const bodyPartsArr = [
   "cardio",
@@ -90,36 +90,51 @@ const bodyPartsArr = [
 ];
 
 //select 2 exercises from retreived data
-const createPlan = async () => {
-  await getExerciseByEquip();
-  console.log(plan.length);
-  for (let i = 0; i < bodyPartsArr.length; i++) {
-    const filterEx = plan.filter((item) => {
-      return item.bodypart == bodyPartsArr[i];
-    });
-    let firstIndex = Math.floor(Math.random() * filterEx.length);
-    let secondIndex = Math.floor(Math.random() * filterEx.length);
-    if (firstIndex === secondIndex) {
-      secondIndex = Math.floor(Math.random() * filterEx.length);
+const createPlan = async (req, res) => {
+  console.log(req.body);
+  try {
+    let plan = await getDataEquip("exercises", "*", "equipment", req.body);
+    console.log(plan);
+    for (let i = 0; i < bodyPartsArr.length; i++) {
+      const filterEx = plan.filter((item) => {
+        return item.bodypart == bodyPartsArr[i];
+      });
+      let firstIndex = Math.floor(Math.random() * filterEx.length);
+      let secondIndex = Math.floor(Math.random() * filterEx.length);
+      if (firstIndex === secondIndex) {
+        secondIndex = Math.floor(Math.random() * filterEx.length);
+      }
+      console.log(firstIndex, secondIndex);
+      const userPlan = [
+        { userid: 1, exid: filterEx[firstIndex].id },
+        { userid: 1, exid: filterEx[secondIndex].id },
+      ];
+      console.log(userPlan);
+      const result = await insertData("userplan", userPlan);
+      console.log(result.length);
     }
-    const userPlan = [
-      { userid: 1, exid: filterEx[firstIndex].id },
-      { userid: 1, exid: filterEx[secondIndex].id },
-    ];
-    console.log(userPlan);
-    const result = await insertData("userplan", userPlan);
-    console.log(result.length);
+    res.send("yay");
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({ msg: "bummer" });
   }
 };
 
 const getUserPlan = async (req, res) => {
+  console.log(req.body);
   try {
-    let result = await getData("userplan", "*", { userid: 1 });
+    let result = await getJoinData(
+      "userplan",
+      "exercises",
+      "userplan.exid",
+      "exercises.exid",
+      { userid: 1 }
+    );
     console.log(result);
     res.send(result);
   } catch (error) {
     console.log(error);
-    res.status(404).json({ msg: "I failed" });
+    res.status(404).json({ msg: "couldnt make it" });
   }
 };
 
@@ -176,7 +191,6 @@ module.exports = {
   getPic,
   updateUser,
   getUserPlan,
-  getExerciseByEquip,
   insertUserDb,
   userLogin,
 };

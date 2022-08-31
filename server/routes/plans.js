@@ -6,7 +6,6 @@ const {
   writeUser,
   getPic,
   updateUser,
-  getExerciseByEquip,
   getUserPlan,
   insertUserDb,
   userLogin,
@@ -20,11 +19,12 @@ router.get("/read", readUser);
 // router.get("/ehud", writeUser);
 
 // router.get("/plan", createPlan);
-router.get("/exercise", getExerciseByEquip);
+// router.get("/exercise", getExerciseByEquip);
 
 //route to update info in db
 router.get("/update", updateUser);
 router.get("/userplan", getUserPlan);
+router.post("/createplan", createPlan);
 
 //test getting gif
 router.get("/picture", getPic);

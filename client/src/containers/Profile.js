@@ -2,32 +2,45 @@ import React from "react";
 import Equipment from "../components/Equipment";
 import TrainingPurpose from "../components/TrainingPurpose";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Profile() {
-  const [selectEquip, setSelectEquip] = useState([]);
+  let navigate = useNavigate();
+  const [selectEquip, setSelectEquip] = useState(["body weight"]);
   const getInfoEquip = (e) => {
     if (e.target.checked) {
-      selectEquip[e.target.name] = e.target.value;
-      setSelectEquip(selectEquip);
-      console.log(selectEquip);
-
-      // const [data, setData] = useState({
-      //   first_name: "",
-      //   last_name: "",
-      //   email: "",
-      //   password: "",
-      // });
-      // const handleChange = (event) => {
-      //   data[event.target.name] = event.target.value;
-      //   setData(data);
-      // };
+      selectEquip.push(e.target.value);
+    } else {
+      selectEquip.splice(selectEquip.indexOf(e.target.value), 1);
     }
+    setSelectEquip(selectEquip);
+    console.log(selectEquip);
   };
+
+  const createEquipPlan = async () => {
+    const response = await fetch("/createplan", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(selectEquip),
+    });
+    console.log(await response.text());
+  };
+
+  const viewPlan = async () => {
+    const response = await fetch("/userplan", {
+      method: "GET",
+    });
+    console.log(await response.text());
+  };
+
   return (
     <div>
       <Equipment handleChange={getInfoEquip} />
       <TrainingPurpose />
-      {/* <button onClick={}>Create My Plan!</button> */}
+      <button onClick={createEquipPlan}>Create My Plan!</button>
+      <button onClick={viewPlan}>view plan</button>
     </div>
   );
 }

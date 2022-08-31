@@ -28,7 +28,7 @@ function Login() {
           let userLoggedIn = await response.text();
           console.log(userLoggedIn);
           if (userLoggedIn === "welcome") {
-            navigate("/userplan");
+            navigate("/profile");
           }
         }}
       >
