@@ -1,6 +1,6 @@
 import React from "react";
 
-function Exercise() {
+function Exercise(props) {
   return <div></div>;
 }
 

@@ -28,19 +28,12 @@ function Profile() {
     console.log(await response.text());
   };
 
-  const viewPlan = async () => {
-    const response = await fetch("/userplan", {
-      method: "GET",
-    });
-    console.log(await response.text());
-  };
-
   return (
     <div>
       <Equipment handleChange={getInfoEquip} />
       <TrainingPurpose />
       <button onClick={createEquipPlan}>Create My Plan!</button>
-      <button onClick={viewPlan}>view plan</button>
+      <button onClick={() => navigate("/plan")}>view plan</button>
     </div>
   );
 }

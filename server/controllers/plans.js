@@ -121,7 +121,7 @@ const createPlan = async (req, res) => {
 };
 
 const getUserPlan = async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   try {
     let result = await getJoinData(
       "userplan",
@@ -130,8 +130,8 @@ const getUserPlan = async (req, res) => {
       "exercises.exid",
       { userid: 1 }
     );
-    console.log(result);
-    res.send(result);
+    console.log(JSON.stringify(result));
+    res.send(JSON.stringify(result));
   } catch (error) {
     console.log(error);
     res.status(404).json({ msg: "couldnt make it" });
