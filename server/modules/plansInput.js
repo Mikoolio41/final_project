@@ -5,6 +5,11 @@ const getData = (table, property, where) => {
   return db(table).select(property).where(where);
 };
 
+// const getInfoLogin = (table, column, where) => {
+//   return db
+// }.select('title', 'author', 'year')
+//   .from('books')
+
 const getDataEquip = (table, property, column, list) => {
   return db(table).select(property).whereIn([column], list);
 };

@@ -166,14 +166,18 @@ const insertUserDb = async (req, res) => {
 const userLogin = async (req, res) => {
   console.log(await req.body);
   try {
-    let result = await getData("fit_user", ("email", "password"), {
-      email: req.body.email,
-    });
+    let result = await getData(
+      "fit_user",
+      ["id", "first_name", "email", "password"],
+      {
+        email: req.body.email,
+      }
+    );
     console.log(result);
     if (result.length == 0) {
       res.send("you're not registered");
     } else if (result.length > 0 && result[0].password === req.body.password) {
-      res.send("welcome");
+      res.send({ first_name: result[0].first_name, userid: result[0].id });
     } else {
       res.send("password not correct");
     }

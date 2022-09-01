@@ -25,9 +25,12 @@ function Login() {
             },
             body: JSON.stringify(userLogin),
           });
-          let userLoggedIn = await response.text();
+          let userLoggedIn = await response.json();
+          // let json = await userLoggedIn.json();
           console.log(userLoggedIn);
-          if (userLoggedIn === "welcome") {
+          if (userLoggedIn !== null) {
+            sessionStorage.setItem("userid", userLoggedIn.userid);
+            console.log(sessionStorage.getItem("userid"));
             navigate("/profile");
           }
         }}
