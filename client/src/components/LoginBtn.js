@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 function LoginBtn() {
+  sessionStorage.setItem("key", "value");
   let navigate = useNavigate();
   return (
     <div>

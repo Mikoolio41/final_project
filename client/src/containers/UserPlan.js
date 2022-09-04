@@ -8,7 +8,13 @@ function UserPlan() {
 
   const viewPlan = async () => {
     const response = await fetch("/userplan", {
-      method: "GET",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userid: sessionStorage.getItem("userid"),
+      }),
     });
     let json = await response.json();
     setViewUserPlan(json);

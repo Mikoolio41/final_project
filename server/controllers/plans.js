@@ -93,7 +93,12 @@ const bodyPartsArr = [
 const createPlan = async (req, res) => {
   console.log(req.body);
   try {
-    let plan = await getDataEquip("exercises", "*", "equipment", req.body);
+    let plan = await getDataEquip(
+      "exercises",
+      "*",
+      "equipment",
+      req.body.equipment
+    );
     console.log(plan);
     for (let i = 0; i < bodyPartsArr.length; i++) {
       const filterEx = plan.filter((item) => {
@@ -106,8 +111,14 @@ const createPlan = async (req, res) => {
       }
       console.log(firstIndex, secondIndex);
       const userPlan = [
-        { userid: 1, exid: filterEx[firstIndex].id },
-        { userid: 1, exid: filterEx[secondIndex].id },
+        {
+          userid: req.body.userid,
+          exid: filterEx[firstIndex].id,
+        },
+        {
+          userid: req.body.userid,
+          exid: filterEx[secondIndex].id,
+        },
       ];
       console.log(userPlan);
       const result = await insertData("userplan", userPlan);
@@ -121,14 +132,13 @@ const createPlan = async (req, res) => {
 };
 
 const getUserPlan = async (req, res) => {
-  // console.log(req.body);
   try {
     let result = await getJoinData(
       "userplan",
       "exercises",
       "userplan.exid",
       "exercises.exid",
-      { userid: 1 }
+      { userid: req.body.userid }
     );
     console.log(JSON.stringify(result));
     res.send(JSON.stringify(result));
@@ -154,9 +164,17 @@ const exerciseById = async () => {
 const insertUserDb = async (req, res) => {
   console.log(await req.body);
   try {
-    let result = await insertData("fit_user", req.body);
-    console.log(result);
-    res.send(result);
+    let checkUserExist = await getData("fit_user", ["id", "email"], {
+      email: req.body.email,
+    });
+    console.log(checkUserExist);
+    if (checkUserExist.length === 0) {
+      let result = await insertData("fit_user", req.body);
+      console.log(result);
+      res.send(result);
+    } else {
+      res.send({ msg: "user already exists, please log in" });
+    }
   } catch (error) {
     console.log(error);
     res.status(404).json({ msg: "could not insert user" });

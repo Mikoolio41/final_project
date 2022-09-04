@@ -23,9 +23,16 @@ function Profile() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(selectEquip),
+      body: JSON.stringify({
+        equipment: selectEquip,
+        userid: sessionStorage.getItem("userid"),
+      }),
     });
-    console.log(await response.text());
+    console.log();
+    let planCreated = await response.text();
+    if (planCreated === "yay") {
+      navigate("/userplan");
+    }
   };
 
   return (

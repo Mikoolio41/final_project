@@ -1,10 +1,12 @@
 import { React, useState } from "react";
 import Gender from "../components/Gender.js";
 import "./Signup.css";
+import { useNavigate } from "react-router-dom";
 
 let regexPass = new RegExp("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,15}$");
 
 function Signup() {
+  let navigate = useNavigate();
   const [first_name, setFirst_name] = useState();
   const [last_name, setLast_name] = useState();
   const [email, setEmail] = useState();
@@ -17,32 +19,41 @@ function Signup() {
   const changeGender = (e) => {
     setGender(e.target.value);
   };
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    let userData = {
+      first_name: first_name,
+      last_name: last_name,
+      email: email,
+      password: password.password,
+      birthdate: birthdate,
+      weight: weight,
+      height: height,
+      gender: gender,
+    };
+    const response = await fetch("/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    });
+    let userExists = await response.json();
+    console.log(userExists);
+    if (userExists.msg === "user already exists, please log in") {
+      alert("user already exists, please log in");
+    } else {
+      if (sessionStorage.getItem("userid") !== null) {
+        navigate("/profile");
+      } else {
+        sessionStorage.setItem("userid", userExists[0].id);
+      }
+    }
+  };
 
   return (
     <div className="form">
-      <form
-        onSubmit={async (event) => {
-          event.preventDefault();
-          let userData = {
-            first_name: first_name,
-            last_name: last_name,
-            email: email,
-            password: password.password,
-            birthdate: birthdate,
-            weight: weight,
-            height: height,
-            gender: gender,
-          };
-          const response = await fetch("/register", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(userData),
-          });
-          console.log(await response.text());
-        }}
-      >
+      <form onSubmit={handleSubmit}>
         <div className="titleRegister">Please fill out the info below</div>
         {/* <div className="subtitle">Please insert your info:</div> */}
         <div className="input-container ic1">

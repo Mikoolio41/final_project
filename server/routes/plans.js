@@ -23,7 +23,7 @@ router.get("/read", readUser);
 
 //route to update info in db
 router.get("/update", updateUser);
-router.get("/userplan", getUserPlan);
+router.post("/userplan", getUserPlan);
 router.post("/createplan", createPlan);
 
 //test getting gif
