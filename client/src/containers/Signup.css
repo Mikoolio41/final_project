@@ -1,9 +1,8 @@
 body {
-  align-items: center;
   background-color: rgb(34, 34, 34);
   display: flex;
-  justify-content: center;
-  height: 100vh;
+
+  /* height: 100vh; */
 }
 
 .form {
@@ -13,6 +12,8 @@ body {
   height: fit-content;
   padding: 20px;
   width: 550px;
+  align-items: center;
+  justify-content: center;
 }
 
 .titleRegister,
