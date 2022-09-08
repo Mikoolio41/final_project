@@ -5,8 +5,8 @@ import "./Navbar.css";
 function Navbar() {
   return (
     <div className="navContainer">
-      <li>
-        <Link to="/">Homepage</Link>
+      <li className="logo">
+        <Link to="/">WorkItOut</Link>
       </li>
       <li>
         <Link to="/plans">My Plans</Link>

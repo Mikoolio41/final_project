@@ -3,6 +3,7 @@ import Equipment from "../components/Equipment";
 import TrainingPurpose from "../components/TrainingPurpose";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 function Profile() {
   let navigate = useNavigate();
@@ -37,6 +38,7 @@ function Profile() {
 
   return (
     <div>
+      <Navbar />
       <Equipment handleChange={getInfoEquip} />
       <TrainingPurpose />
       <button onClick={createEquipPlan}>Create My Plan!</button>

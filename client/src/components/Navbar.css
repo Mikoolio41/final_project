@@ -1,14 +1,21 @@
 .navContainer {
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  background-color: rgba(255, 255, 255, 0.7);
-  width: 100%;
+  justify-content: flex-end;
+  background-color: rgba(255, 255, 255, 0.6);
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 li,
 a {
   list-style: none;
   text-decoration: none;
-  padding: 10px 5px;
+  padding: 20px;
+}
+
+a:hover {
+  background-color: white;
+  border-radius: 5px;
 }
