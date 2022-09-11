@@ -53,8 +53,8 @@ function Signup() {
 
   return (
     <div className="form">
+      <div className="titleRegister">Please fill out the info below</div>
       <form onSubmit={handleSubmit}>
-        <div className="titleRegister">Please fill out the info below</div>
         {/* <div className="subtitle">Please insert your info:</div> */}
         <div className="input-container ic1">
           <input
@@ -134,7 +134,7 @@ function Signup() {
             Height in cm
           </label>
         </div>
-        <div className="input-container ic2">
+        <div className="input-container ic1">
           <input
             type="text"
             id="weight"
@@ -151,7 +151,7 @@ function Signup() {
         <label className="labelBirthdate" htmlFor="birthday">
           Please enter your birthdate:
         </label>
-        <div className="input-container ic2">
+        <div className="input-container ic1">
           <input
             type="date"
             id="birthdate"
@@ -161,7 +161,7 @@ function Signup() {
             onChange={(e) => setBirthdate(e.target.value)}
           />
         </div>
-        <div className="input-container ic2">
+        <div className="input-container ic1">
           <label className="labelGender" htmlFor="gender">
             You identify as:
           </label>
