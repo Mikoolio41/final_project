@@ -26,9 +26,19 @@ const updateData = (table, newData, id) => {
   return db(table).update(newData).where(id).returning("*");
 };
 
-const getJoinData = (table1, table2, column1, column2, where) => {
+const getJoinData = (
+  table1,
+  table2,
+  table3,
+  column1,
+  column2,
+  column3,
+  column4,
+  where
+) => {
   return db(table1)
     .join(table2, column1, "=", column2)
+    .join(table3, column3, "=", column4)
     .select("*")
     .where(where);
 };

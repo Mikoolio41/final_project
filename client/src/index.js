@@ -8,10 +8,12 @@ import Signup from "./containers/Signup";
 import Login from "./containers/Login";
 import Profile from "./containers/Profile";
 import UserPlan from "./containers/UserPlan";
+import Navbar from "./components/Navbar";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
+    <Navbar />
     <Routes>
       <Route path="/" element={<Homepage />} />
       <Route path="/register" element={<Signup />} />

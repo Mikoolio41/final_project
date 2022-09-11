@@ -136,8 +136,11 @@ const getUserPlan = async (req, res) => {
     let result = await getJoinData(
       "userplan",
       "exercises",
+      "user_target",
       "userplan.exid",
       "exercises.exid",
+      "user_target.user_id",
+      "userplan.userid",
       { userid: req.body.userid }
     );
     console.log(JSON.stringify(result));
@@ -205,6 +208,17 @@ const userLogin = async (req, res) => {
   }
 };
 
+const userTarget = async (req, res) => {
+  try {
+    let result = await insertData("user_target", req.body);
+    console.log(result);
+    res.send("target inserted");
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({ msg: "could not insert target" });
+  }
+};
+
 module.exports = {
   createPlan,
   exerciseById,
@@ -215,4 +229,5 @@ module.exports = {
   getUserPlan,
   insertUserDb,
   userLogin,
+  userTarget,
 };

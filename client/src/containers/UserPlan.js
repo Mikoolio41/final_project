@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 
 function UserPlan() {
   const [viewUserPlan, setViewUserPlan] = useState();
+  const [planTarget, setPlanTarget] = useState();
 
   const viewPlan = async () => {
     const response = await fetch("/userplan", {
@@ -27,12 +28,33 @@ function UserPlan() {
 
   if (viewUserPlan) {
     return viewUserPlan.map((item, index) => {
+      switch (item.target) {
+        case "1":
+          setPlanTarget({ sets: 4, reps: 8, rest: 90 });
+          break;
+        case "2":
+          setPlanTarget({ sets: 4, reps: 10, rest: 45 });
+          break;
+        case "3":
+          setPlanTarget({ sets: 4, reps: 12, rest: 60 });
+          break;
+        case "4":
+          setPlanTarget({ sets: 3, reps: 15, rest: 60 });
+          break;
+        default:
+          break;
+      }
+      console.log(planTarget);
       return (
         <div key={index}>
           <Exercise
             name={item.name}
             equipment={item.equipment}
-            target={item.target}
+            bodypart={item.bodypart}
+            target={item.target_id}
+            sets={planTarget.sets}
+            reps={planTarget.reps}
+            rest={planTarget.rest}
           />
           <Image url={item.gifurl} />
         </div>

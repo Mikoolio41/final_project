@@ -9,6 +9,7 @@ const {
   getUserPlan,
   insertUserDb,
   userLogin,
+  userTarget,
 } = require("../controllers/plans");
 const router = express.Router();
 
@@ -25,6 +26,7 @@ router.get("/read", readUser);
 router.get("/update", updateUser);
 router.post("/userplan", getUserPlan);
 router.post("/createplan", createPlan);
+router.post("/user_target", userTarget);
 
 //test getting gif
 router.get("/picture", getPic);

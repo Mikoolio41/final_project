@@ -7,6 +7,7 @@ import Navbar from "../components/Navbar";
 
 function Profile() {
   let navigate = useNavigate();
+  // const [selectTarget, setSelectTarget] = useState([]);
   const [selectEquip, setSelectEquip] = useState(["body weight"]);
   const getInfoEquip = (e) => {
     if (e.target.checked) {
@@ -36,11 +37,29 @@ function Profile() {
     }
   };
 
+  const insertUserTarget = async (e) => {
+    console.log(e.target.value);
+    const result = await fetch("/user_target", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user_id: sessionStorage.getItem("userid"),
+        target_id: e.target.value,
+      }),
+    });
+    let targetSelected = await result.text();
+    if (targetSelected === "target inserted") {
+      console.log("succeeded");
+    }
+  };
+
   return (
     <div>
       <Navbar />
       <Equipment handleChange={getInfoEquip} />
-      <TrainingPurpose />
+      <TrainingPurpose handleChange={insertUserTarget} />
       <button onClick={createEquipPlan}>Create My Plan!</button>
       <button onClick={() => navigate("/plan")}>view plan</button>
     </div>

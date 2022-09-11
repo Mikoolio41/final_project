@@ -2,15 +2,16 @@ import React from "react";
 
 function Exercise(props) {
   return (
-    <div
-      name={props.name}
-      bodypart={props.bodypart}
-      equipment={props.equipment}
-      sets={props.sets}
-      reps={props.reps}
-      rest={props.rest}
-      gifurl={props.gifurl}
-    ></div>
+    <div>
+      <p>Target: {props.target_id}</p>
+      <p>Exercise Name: {props.name}</p>
+      <p>Bodypart: {props.bodypart}</p>
+      <p>Equipment: {props.equipment}</p>
+      <p>Sets: {props.sets}</p>
+      <p>Reps: {props.reps}</p>
+      <p>Rest: {props.rest}</p>
+      <p>{props.gifurl}</p>
+    </div>
   );
 }
 
