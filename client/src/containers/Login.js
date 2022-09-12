@@ -1,6 +1,6 @@
 import { React, useState } from "react";
-import "./Signup.css";
 import { useNavigate } from "react-router-dom";
+import styles from "./Login.module.css";
 
 let regexPass = new RegExp("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,15}$");
 
@@ -10,8 +10,10 @@ function Login() {
   let navigate = useNavigate();
 
   return (
-    <div className="form">
+    <div className="loginForm">
+      <div className="titleLogin">Please login</div>
       <form
+        className={styles.form}
         onSubmit={async (event) => {
           event.preventDefault();
           let userLogin = {
@@ -36,7 +38,6 @@ function Login() {
           }
         }}
       >
-        <div className="titleLogin">Please login</div>
         {/* <div className="subtitle">Please insert your info:</div> */}
         <div className="input-container ic1">
           <input

@@ -1,33 +1,34 @@
 import React from "react";
+import styles from "../containers/Signup.module.css";
 
 function Gender(props) {
   return (
-    <div className="gender">
-      <label htmlFor="gender"></label>
+    <div className={styles.labelGender}>
+      <label htmlFor={styles.labelGender}></label>
       <input
         type="radio"
         value="Male"
-        name="gender"
-        style={{ color: "white" }}
+        name={styles.labelGender}
+        // style={{ color: "white" }}
         onChange={props.changeGender}
       />{" "}
       Male
-      <label htmlFor="gender"></label>
+      <label htmlFor={styles.labelGender}></label>
       <input
-        className="femalebtn"
+        className={styles.femalebtn}
         type="radio"
         value="Female"
-        name="gender"
-        style={{ color: "white" }}
+        name={styles.labelGender}
+        style={{ color: "red" }}
         onChange={props.changeGender}
       />{" "}
       Female
-      <label htmlFor="gender"></label>
+      <label htmlFor={styles.labelGender}></label>
       <input
-        className="otherbtn"
+        className={styles.otherbtn}
         type="radio"
         value="Other"
-        name="gender"
+        name={styles.labelGender}
         style={{ color: "white" }}
         onChange={props.changeGender}
       />{" "}

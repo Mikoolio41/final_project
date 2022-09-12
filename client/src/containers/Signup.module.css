@@ -20,6 +20,7 @@ form {
   grid-template-rows: repeat(5, 1fr);
   justify-content: center;
   text-align: center;
+  /* height: 100px; */
 }
 
 .titleRegister,
@@ -39,7 +40,7 @@ form {
   margin-top: 10px;
 } */
 
-.input-container {
+.inputContainer {
   height: 50px;
   position: relative;
   /* width: 50%; */
@@ -74,9 +75,9 @@ form {
   width: 83px;
 }
 
-.cut-short {
+/* .cut-short {
   width: 50px;
-}
+} */
 
 .input:focus ~ .cut,
 .input:not(:placeholder-shown) ~ .cut {

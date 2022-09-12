@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import Gender from "../components/Gender.js";
-import "./Signup.css";
+import styles from "./Signup.module.css";
 import { useNavigate } from "react-router-dom";
 
 let regexPass = new RegExp("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,15}$");
@@ -52,55 +52,55 @@ function Signup() {
   };
 
   return (
-    <div className="form">
-      <div className="titleRegister">Please fill out the info below</div>
-      <form onSubmit={handleSubmit}>
+    <div className={styles.signUpForm}>
+      <div className={styles.titleRegister}>Please fill out the info below</div>
+      <form className={styles.form} onSubmit={handleSubmit}>
         {/* <div className="subtitle">Please insert your info:</div> */}
-        <div className="input-container ic1">
+        <div className={`${styles.inputContainer} ${styles.ic1}`}>
           <input
-            className="input"
+            className={styles.input}
             type="text"
             id="first_name"
             name="first_name"
             placeholder=" "
             onChange={(e) => setFirst_name(e.target.value)}
           />
-          <div className="cut"></div>
-          <label className="placeholder" htmlFor="first_name">
+          <div className={styles.cut}></div>
+          <label className={styles.placeholder} htmlFor="first_name">
             First Name
           </label>
         </div>
-        <div className="input-container ic1">
+        <div className={`${styles.inputContainer} ${styles.ic1}`}>
           <input
-            className="input"
+            className={styles.input}
             type="text"
             id="last_name"
             name="last_name"
             placeholder=" "
             onChange={(e) => setLast_name(e.target.value)}
           />
-          <div className="cut"></div>
-          <label className="placeholder" htmlFor="last_name">
+          <div className={styles.cut}></div>
+          <label className={styles.placeholder} htmlFor="last_name">
             Last Name
           </label>
         </div>
-        <div className="input-container ic1">
+        <div className={`${styles.inputContainer} ${styles.ic1}`}>
           <input
-            className="input"
+            className={styles.input}
             type="email"
             id="email"
             name="email"
             placeholder=" "
             onChange={(e) => setEmail(e.target.value)}
           />
-          <div className="cut"></div>
-          <label className="placeholder" htmlFor="email">
+          <div className={styles.cut}></div>
+          <label className={styles.placeholder} htmlFor="email">
             Email
           </label>
         </div>
-        <div className="input-container ic1">
+        <div className={`${styles.inputContainer} ${styles.ic1}`}>
           <input
-            className="input"
+            className={styles.input}
             type="password"
             id="password"
             name="password"
@@ -115,59 +115,59 @@ function Signup() {
               }
             }}
           />
-          <div className="cut"></div>
-          <label className="placeholder" htmlFor="password">
+          <div className={styles.cut}></div>
+          <label className={styles.placeholder} htmlFor="password">
             Password
           </label>
         </div>
-        <div className="input-container ic1">
+        <div className={`${styles.inputContainer} ${styles.ic1}`}>
           <input
-            className="input"
+            className={styles.input}
             type="text"
             id="height"
             name="height"
             placeholder=" "
             onChange={(e) => setHeight(e.target.value)}
           />
-          <div className="cut"></div>
-          <label className="placeholder" htmlFor="height">
+          <div className={styles.cut}></div>
+          <label className={styles.placeholder} htmlFor="height">
             Height in cm
           </label>
         </div>
-        <div className="input-container ic1">
+        <div className={`${styles.inputContainer} ${styles.ic1}`}>
           <input
             type="text"
             id="weight"
-            className="input"
+            className={styles.input}
             name="weight"
             placeholder=" "
             onChange={(e) => setWeight(e.target.value)}
           />
-          <div className="cut"></div>
-          <label className="placeholder" htmlFor="weight">
+          <div className={styles.cut}></div>
+          <label className={styles.placeholder} htmlFor="weight">
             Weight in kg
           </label>
         </div>
-        <label className="labelBirthdate" htmlFor="birthday">
+        <label className={styles.labelBirthdate} htmlFor="birthday">
           Please enter your birthdate:
         </label>
-        <div className="input-container ic1">
+        <div className={`${styles.inputContainer} ${styles.ic1}`}>
           <input
             type="date"
             id="birthdate"
-            className="input"
+            className={styles.input}
             name="birthdate"
             placeholder=" "
             onChange={(e) => setBirthdate(e.target.value)}
           />
         </div>
-        <div className="input-container ic1">
-          <label className="labelGender" htmlFor="gender">
+        <div className={`${styles.inputContainer} ${styles.ic1}`}>
+          <label className={styles.labelGender} htmlFor="gender">
             You identify as:
           </label>
           <Gender changeGender={changeGender} name="gender" />
         </div>
-        <button className="submit" type="submit">
+        <button className={styles.submit} type={styles.submit}>
           Submit
         </button>
       </form>

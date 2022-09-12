@@ -3,7 +3,7 @@ import React from "react";
 function Exercise(props) {
   return (
     <div>
-      <p>Target: {props.target_id}</p>
+      <p>Target: {props.target}</p>
       <p>Exercise Name: {props.name}</p>
       <p>Bodypart: {props.bodypart}</p>
       <p>Equipment: {props.equipment}</p>
