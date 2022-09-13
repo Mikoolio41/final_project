@@ -10,10 +10,9 @@ function Login() {
   let navigate = useNavigate();
 
   return (
-    <div className="loginForm">
-      <div className="titleLogin">Please login</div>
+    <div className={styles.loginForm}>
       <form
-        className={styles.form}
+        className={styles.form2}
         onSubmit={async (event) => {
           event.preventDefault();
           let userLogin = {
@@ -38,24 +37,25 @@ function Login() {
           }
         }}
       >
+        <div className={styles.titleLogin}>Please login</div>
         {/* <div className="subtitle">Please insert your info:</div> */}
-        <div className="input-container ic1">
+        <div className={`${styles.inputContainer} ${styles.ic1}`}>
           <input
-            className="input"
+            className={styles.input}
             type="email"
             id="email"
             name="email"
             placeholder=" "
             onChange={(e) => setEmail(e.target.value)}
           />
-          <div className="cut"></div>
-          <label className="placeholder" htmlFor="email">
+          <div className={styles.cutEmail}></div>
+          <label className={styles.placeholder} htmlFor="email">
             Email
           </label>
         </div>
-        <div className="input-container ic1">
+        <div className={`${styles.inputContainer} ${styles.ic1}`}>
           <input
-            className="input"
+            className={styles.input}
             type="password"
             id="password"
             name="password"
@@ -68,12 +68,12 @@ function Login() {
               }
             }}
           />
-          <div className="cut"></div>
-          <label className="placeholder" htmlFor="password">
+          <div className={styles.cut}></div>
+          <label className={styles.placeholder} htmlFor="password">
             Password
           </label>
         </div>
-        <button className="submit" type="submit">
+        <button className={styles.submit} type={styles.submit}>
           Login
         </button>
       </form>

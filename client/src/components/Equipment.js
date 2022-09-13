@@ -5,7 +5,6 @@ const equip = [
   { name: "assisted", label: "Assisted", exid: "assisted" },
   { name: "band", label: "Band", exid: "band" },
   { name: "barbell", label: "Barbell", exid: "barbell" },
-  // { name: "body_weight", label: "Body Weight", exid: "body weight" },
   { name: "bosu_ball", label: "Bosu Ball", exid: "bosu ball" },
   { name: "cable", label: "Cable", exid: "cable" },
   { name: "dumbbell", label: "Dumbbell", exid: "dumbbell" },

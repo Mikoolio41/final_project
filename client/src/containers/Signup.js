@@ -53,8 +53,10 @@ function Signup() {
 
   return (
     <div className={styles.signUpForm}>
-      <div className={styles.titleRegister}>Please fill out the info below</div>
-      <form className={styles.form} onSubmit={handleSubmit}>
+      <form className={styles.form1} onSubmit={handleSubmit}>
+        <div className={styles.titleRegister}>
+          Please fill out the info below
+        </div>
         {/* <div className="subtitle">Please insert your info:</div> */}
         <div className={`${styles.inputContainer} ${styles.ic1}`}>
           <input
