@@ -1,51 +1,30 @@
 import React from "react";
-import "./TrainingPurpose.css";
+import "./Equipment.css";
+
+const trainingTarget = [
+  { name: "build_strength", label: "Build strength", target_id: 1 },
+  { name: "lose_fat", label: "Lose fat", target_id: 2 },
+  { name: "tone", label: "Tone", target_id: 3 },
+  { name: "healthy", label: "Just be healthy!", target_id: 4 },
+];
 
 function TrainingPurpose(props) {
   return (
-    <div>
-      <div className="select animated zoomIn purposeContainer">
-        <input type="radio" name="option" />
-        <i className="toggle icon icon-arrow-down"></i>
-        <i className="toggle icon icon-arrow-up"></i>
-        <span className="placeholderTr">What is your training purpose --</span>
-        <label className="option">
-          <input
-            onChange={props.handleChange}
-            type="radio"
-            name="option"
-            value="1"
-          />
-          <span className="title animated fadeIn">Build Strength</span>
-        </label>
-        <label className="option">
-          <input
-            onChange={props.handleChange}
-            type="radio"
-            name="option"
-            value="2"
-          />
-          <span className="title animated fadeIn">Lose Fat</span>
-        </label>
-        <label className="option">
-          <input
-            onChange={props.handleChange}
-            type="radio"
-            name="option"
-            value="3"
-          />
-          <span className="title animated fadeIn">Toning</span>
-        </label>
-        <label className="option">
-          <input
-            onChange={props.handleChange}
-            type="radio"
-            name="option"
-            value="4"
-          />
-          <span className="title animated fadeIn">Just be healthy!</span>
-        </label>
-      </div>
+    <div className="targetContainer">
+      {trainingTarget.map((item, index) => {
+        return (
+          <div key={index} className="checkbox-rectTr">
+            <input
+              onChange={props.handleChange}
+              type="checkbox"
+              id={`checkbox-rectTr${index}`}
+              name={item.name}
+              value={item.target_id}
+            />
+            <label htmlFor={`checkbox-rectTr${index}`}>{item.label}</label>
+          </div>
+        );
+      })}
     </div>
   );
 }
