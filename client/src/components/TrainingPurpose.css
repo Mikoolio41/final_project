@@ -3,7 +3,7 @@
 
 .targetContainer {
   padding: 40px 80px;
-  background-color: rgba(221, 201, 173, 0.7);
+  background-color: rgb(221, 201, 173);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 45px;
