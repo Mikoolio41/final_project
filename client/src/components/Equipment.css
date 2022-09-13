@@ -10,7 +10,7 @@
   column-gap: 45px;
   row-gap: 18px;
   color: black;
-  margin: 90px auto;
+  margin-top: 90px;
   border-radius: 5px;
   position: relative;
   left: 50%;
@@ -28,8 +28,9 @@
   position: relative;
   padding-left: 35px;
   margin-bottom: 20px;
-  font: 14px/20px "Open Sans", Arial, sans-serif;
+  font-size: 14px;
   cursor: pointer;
+  font-family: "Roboto Mono";
 }
 .checkbox-rect input[type="checkbox"]:hover + label:hover {
   color: rgb(23, 86, 228);

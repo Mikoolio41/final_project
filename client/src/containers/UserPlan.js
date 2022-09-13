@@ -31,16 +31,16 @@ function UserPlan() {
       console.log(item.target_id);
       switch (item.target_id) {
         case 1:
-          planTarget = { sets: 4, reps: 8, rest: 90 };
+          planTarget = { sets: 5, reps: 8, rest: 90 };
           break;
         case 2:
           planTarget = { sets: 4, reps: 10, rest: 45 };
           break;
         case 3:
-          planTarget = { sets: 4, reps: 12, rest: 60 };
+          planTarget = { sets: 4, reps: 15, rest: 60 };
           break;
         case 4:
-          planTarget = { sets: 3, reps: 15, rest: 60 };
+          planTarget = { sets: 3, reps: 12, rest: 60 };
           break;
         default:
           planTarget = { sets: 0, reps: 0, rest: 0 };
