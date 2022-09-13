@@ -4,11 +4,14 @@ import TrainingPurpose from "../components/TrainingPurpose";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import styles from "./Signup.module.css";
 
 function Profile() {
   let navigate = useNavigate();
   // const [selectTarget, setSelectTarget] = useState([]);
   const [selectEquip, setSelectEquip] = useState(["body weight"]);
+  const [infoTarget, setInfoTarget] = useState();
+
   const getInfoEquip = (e) => {
     if (e.target.checked) {
       selectEquip.push(e.target.value);
@@ -17,6 +20,10 @@ function Profile() {
     }
     setSelectEquip(selectEquip);
     console.log(selectEquip);
+  };
+
+  const getInfoTarget = (e) => {
+    setInfoTarget(e.target.value);
   };
 
   const createEquipPlan = async () => {
@@ -37,8 +44,8 @@ function Profile() {
     }
   };
 
-  const insertUserTarget = async (e) => {
-    console.log(e.target.value);
+  const insertUserTarget = async () => {
+    console.log(infoTarget);
     const result = await fetch("/user_target", {
       method: "POST",
       headers: {
@@ -46,22 +53,27 @@ function Profile() {
       },
       body: JSON.stringify({
         user_id: sessionStorage.getItem("userid"),
-        target_id: e.target.value,
+        target_id: infoTarget,
       }),
     });
     let targetSelected = await result.text();
     if (targetSelected === "target inserted") {
       console.log("succeeded");
     }
+    navigate("/plan");
   };
 
   return (
     <div>
       <Navbar />
-      <Equipment handleChange={getInfoEquip} />
-      <TrainingPurpose handleChange={insertUserTarget} />
-      <button onClick={createEquipPlan}>Create My Plan!</button>
-      <button onClick={() => navigate("/plan")}>view plan</button>
+      <Equipment handleChange={getInfoEquip} />{" "}
+      <button className={styles.createBtn} onClick={createEquipPlan}>
+        Create My Plan!
+      </button>
+      <TrainingPurpose handleChange={getInfoTarget} />
+      <button className={styles.navigateBtn} onClick={insertUserTarget}>
+        Take me to my plan!
+      </button>
     </div>
   );
 }

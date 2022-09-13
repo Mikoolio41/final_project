@@ -20,30 +20,10 @@
   letter-spacing: 1px;
 }
 
-.targetContainer {
-  padding: 40px 80px;
-  background-color: rgba(221, 201, 173, 0.7);
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  column-gap: 45px;
-  row-gap: 18px;
-  color: black;
-  margin: 10px auto;
-  border-radius: 5px;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  justify-content: flex-start;
-  font-family: "Roboto Mono";
-  letter-spacing: 1px;
-}
-
-.checkbox-rect input[type="checkbox"],
-.checkbox-rectTr input[type="checkbox"] {
+.checkbox-rect input[type="checkbox"] {
   display: none;
 }
-.checkbox-rect input[type="checkbox"] + label,
-.checkbox-rectTr input[type="checkbox"] + label {
+.checkbox-rect input[type="checkbox"] + label {
   display: block;
   position: relative;
   padding-left: 35px;
@@ -51,21 +31,17 @@
   font: 14px/20px "Open Sans", Arial, sans-serif;
   cursor: pointer;
 }
-.checkbox-rect input[type="checkbox"]:hover + label:hover,
-.checkbox-rectTr input[type="checkbox"]:hover + label:hover {
+.checkbox-rect input[type="checkbox"]:hover + label:hover {
   color: rgb(23, 86, 228);
 }
-.checkbox-rect input[type="checkbox"]:hover + label:before,
-.checkbox-rectTr input[type="checkbox"]:hover + label:before {
+.checkbox-rect input[type="checkbox"]:hover + label:before {
   background: #50565a;
   box-shadow: inset 0px 0px 0px 2px #f7f2f2;
 }
-.checkbox-rect input[type="checkbox"] + label:last-child,
-.checkbox-rectTr input[type="checkbox"] + label:last-child {
+.checkbox-rect input[type="checkbox"] + label:last-child {
   margin-bottom: 0;
 }
-.checkbox-rect input[type="checkbox"] + label:before,
-.checkbox-rectTr input[type="checkbox"] + label:before {
+.checkbox-rect input[type="checkbox"] + label:before {
   content: "";
   display: block;
   width: 1.4em;
@@ -79,8 +55,7 @@
   transition: all 0.2s, background 0.2s ease-in-out;
   background: #f3f3f3;
 }
-.checkbox-rect input[type="checkbox"]:checked + label:before,
-.checkbox-rectTr input[type="checkbox"]:checked + label:before {
+.checkbox-rect input[type="checkbox"]:checked + label:before {
   width: 1.3em;
   height: 1.3em;
   border-radius: 0.2em;

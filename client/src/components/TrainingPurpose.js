@@ -1,5 +1,5 @@
 import React from "react";
-import "./Equipment.css";
+import "./TrainingPurpose.css";
 
 const trainingTarget = [
   { name: "build_strength", label: "Build strength", target_id: 1 },
@@ -13,15 +13,15 @@ function TrainingPurpose(props) {
     <div className="targetContainer">
       {trainingTarget.map((item, index) => {
         return (
-          <div key={index} className="checkbox-rectTr">
+          <div key={index} className="radio">
             <input
               onChange={props.handleChange}
-              type="checkbox"
-              id={`checkbox-rectTr${index}`}
+              type="radio"
+              id={`radio${index}`}
               name={item.name}
               value={item.target_id}
             />
-            <label htmlFor={`checkbox-rectTr${index}`}>{item.label}</label>
+            <label htmlFor={`radio${index}`}>{item.label}</label>
           </div>
         );
       })}
