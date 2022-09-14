@@ -2,6 +2,7 @@ import React from "react";
 import Exercise from "../components/Exercise";
 import Image from "../components/Image";
 import { useState, useEffect } from "react";
+import PlanCard from "../components/PlanCard";
 
 function UserPlan() {
   const [viewUserPlan, setViewUserPlan] = useState();

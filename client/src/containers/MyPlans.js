@@ -1,7 +1,12 @@
 import React from "react";
+import PlanCard from "../components/PlanCard";
 
 function MyPlans() {
-  return <div>MyPlans</div>;
+  return (
+    <div>
+      <PlanCard />
+    </div>
+  );
 }
 
 export default MyPlans;
