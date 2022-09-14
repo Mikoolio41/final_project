@@ -1,0 +1,16 @@
+.exContainer {
+  margin-top: 90px;
+  width: 500px;
+  height: 325px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(7, 50px);
+  font-size: 16px;
+  font-weight: 500;
+  border: 2px solid black;
+  justify-content: flex-start;
+}
+
+.gif {
+  grid-row: 1/8;
+}

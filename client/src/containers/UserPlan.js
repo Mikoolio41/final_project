@@ -2,7 +2,6 @@ import React from "react";
 import Exercise from "../components/Exercise";
 import Image from "../components/Image";
 import { useState, useEffect } from "react";
-import PlanCard from "../components/PlanCard";
 
 function UserPlan() {
   const [viewUserPlan, setViewUserPlan] = useState();
@@ -44,7 +43,7 @@ function UserPlan() {
           planTarget = { sets: 3, reps: 12, rest: 60 };
           break;
         default:
-          planTarget = { sets: 0, reps: 0, rest: 0 };
+          planTarget = { sets: 3, reps: 12, rest: 60 };
           break;
       }
       console.log(planTarget);
@@ -58,8 +57,8 @@ function UserPlan() {
             sets={planTarget.sets}
             reps={planTarget.reps}
             rest={planTarget.rest}
+            url={item.gifurl}
           />
-          <Image url={item.gifurl} />
         </div>
       );
     });
