@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Exercise.module.css";
+import styles from "../components/styles/Exercise.module.css";
 
 function Exercise(props) {
   return (

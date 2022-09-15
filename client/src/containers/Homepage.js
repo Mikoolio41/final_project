@@ -1,7 +1,7 @@
 import React from "react";
 import LoginBtn from "../components/LoginBtn";
 import RegisterBtn from "../components/RegisterBtn";
-import "./Homepage.css";
+import "../containers/styles/Homepage.css";
 import Navbar from "../components/Navbar";
 
 function Homepage() {

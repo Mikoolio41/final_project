@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import Gender from "../components/Gender.js";
-import styles from "./Signup.module.css";
+import styles from "../containers/styles/Signup.module.css";
 import { useNavigate } from "react-router-dom";
 
 let regexPass = new RegExp("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,15}$");

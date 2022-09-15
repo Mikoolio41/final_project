@@ -1,6 +1,5 @@
 import React from "react";
 import Exercise from "../components/Exercise";
-import Image from "../components/Image";
 import { useState, useEffect } from "react";
 
 function UserPlan() {
@@ -22,10 +21,11 @@ function UserPlan() {
   };
 
   useEffect(() => {
-    // insert training purpose query from db
+    // insert training purpose query to db
     viewPlan();
   }, []);
 
+  // define different training target parameters
   if (viewUserPlan) {
     return viewUserPlan.map((item, index) => {
       console.log(item.target_id);

@@ -1,11 +1,13 @@
 import React from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import "./PlanCard.css";
+import "../components/styles/PlanCard.css";
+// import UserPlan from "../containers/UserPlan";
+import Exercise from "./Exercise";
 
 function PlanCard() {
   return (
     <div className="App">
-      <h1>Sample</h1>
+      <h1>MY PLANS</h1>
       <Tabs>
         <TabList>
           <Tab>
@@ -26,27 +28,37 @@ function PlanCard() {
         </TabList>
         <TabPanel>
           <div className="panel-content">
-            <h2>Any content 1</h2>
+            <h2>
+              <Exercise />
+            </h2>
           </div>
         </TabPanel>
         <TabPanel>
           <div className="panel-content">
-            <h2>Any content 2</h2>
+            <h2>
+              <Exercise />
+            </h2>
           </div>
         </TabPanel>
         <TabPanel>
           <div className="panel-content">
-            <h2>Any content 3</h2>
+            <h2>
+              <Exercise />
+            </h2>
           </div>
         </TabPanel>
         <TabPanel>
           <div className="panel-content">
-            <h2>Any content 4</h2>
+            <h2>
+              <Exercise />
+            </h2>
           </div>
         </TabPanel>
         <TabPanel>
           <div className="panel-content">
-            <h2>Any content 5</h2>
+            <h2>
+              <Exercise />
+            </h2>
           </div>
         </TabPanel>
       </Tabs>

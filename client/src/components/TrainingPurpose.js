@@ -1,5 +1,5 @@
 import React from "react";
-import "./TrainingPurpose.css";
+import "../components/styles/TrainingPurpose.css";
 
 const trainingTarget = [
   { label: "Build strength", target_id: 1 },

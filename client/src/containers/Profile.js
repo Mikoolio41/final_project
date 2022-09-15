@@ -4,7 +4,7 @@ import TrainingPurpose from "../components/TrainingPurpose";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import styles from "./Signup.module.css";
+import styles from "../containers/styles/Signup.module.css";
 
 function Profile() {
   let navigate = useNavigate();

@@ -1,5 +1,5 @@
 import React from "react";
-import "./Equipment.css";
+import "./styles/Equipment.css";
 
 const equip = [
   { name: "assisted", label: "Assisted", exid: "assisted" },

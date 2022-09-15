@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../containers/Signup.module.css";
+import styles from "../containers/styles/Signup.module.css";
 
 function Gender(props) {
   return (

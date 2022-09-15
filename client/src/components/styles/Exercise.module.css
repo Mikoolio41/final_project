@@ -14,3 +14,7 @@
 .gif {
   grid-row: 1/8;
 }
+
+p {
+  color: white;
+}
