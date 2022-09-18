@@ -7,7 +7,6 @@ import Homepage from "./containers/Homepage";
 import Signup from "./containers/Signup";
 import Login from "./containers/Login";
 import Profile from "./containers/Profile";
-// import UserPlan from "./containers/UserPlan";
 import Navbar from "./components/Navbar";
 import MyPlans from "./containers/MyPlans";
 

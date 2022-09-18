@@ -9,7 +9,6 @@ function Gender(props) {
         type="radio"
         value="Male"
         name={styles.labelGender}
-        // style={{ color: "white" }}
         onChange={props.changeGender}
       />{" "}
       Male

@@ -9,34 +9,32 @@ function Login() {
   const [password, setPassword] = useState();
   let navigate = useNavigate();
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    let userLogin = {
+      email: email,
+      password: password.password,
+    };
+    const response = await fetch("/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userLogin),
+    });
+    let userLoggedIn = await response.json();
+    console.log(userLoggedIn);
+    if (userLoggedIn.userid > 0) {
+      sessionStorage.setItem("userid", userLoggedIn.userid);
+      navigate("/plan");
+    } else {
+      alert(userLoggedIn.msg);
+    }
+  };
+
   return (
     <div className={styles.loginForm}>
-      <form
-        className={styles.form2}
-        onSubmit={async (event) => {
-          event.preventDefault();
-          let userLogin = {
-            email: email,
-            password: password.password,
-          };
-          const response = await fetch("/login", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(userLogin),
-          });
-          let userLoggedIn = await response.json();
-          // let json = await userLoggedIn.json();
-          console.log(userLoggedIn);
-          if (userLoggedIn !== null) {
-            sessionStorage.setItem("userid", userLoggedIn.userid);
-            console.log(sessionStorage.getItem("userid"));
-            navigate("/profile");
-          } else {
-          }
-        }}
-      >
+      <form className={styles.form2} onSubmit={handleSubmit}>
         <div className={styles.titleLogin}>Please login</div>
         {/* <div className="subtitle">Please insert your info:</div> */}
         <div className={`${styles.inputContainer} ${styles.ic1}`}>

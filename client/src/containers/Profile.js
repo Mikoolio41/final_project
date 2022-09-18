@@ -8,7 +8,6 @@ import styles from "../containers/styles/Signup.module.css";
 
 function Profile() {
   let navigate = useNavigate();
-  // const [selectTarget, setSelectTarget] = useState([]);
   const [selectEquip, setSelectEquip] = useState(["body weight"]);
   const [infoTarget, setInfoTarget] = useState();
 
@@ -19,7 +18,7 @@ function Profile() {
       selectEquip.splice(selectEquip.indexOf(e.target.value), 1);
     }
     setSelectEquip(selectEquip);
-    console.log(selectEquip);
+    // console.log(selectEquip);
   };
 
   const getInfoTarget = (e) => {
@@ -37,15 +36,13 @@ function Profile() {
         userid: sessionStorage.getItem("userid"),
       }),
     });
-    console.log();
     let planCreated = await response.text();
     if (planCreated === "yay") {
-      navigate("/userplan");
     }
   };
 
   const insertUserTarget = async () => {
-    console.log(infoTarget);
+    // console.log(infoTarget);
     const result = await fetch("/user_target", {
       method: "POST",
       headers: {

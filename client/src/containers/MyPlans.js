@@ -4,7 +4,8 @@ import PlanCard from "../components/PlanCard";
 
 function MyPlans() {
   return (
-    <div>
+    <div className="App">
+      <h1>MY PLANS</h1>
       <PlanCard />
     </div>
   );

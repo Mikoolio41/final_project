@@ -1,83 +1,9 @@
 const {
   insertData,
-  updateData,
   getData,
-  getLimitedData,
   getDataEquip,
   getJoinData,
 } = require("../modules/plansInput");
-
-// let plan;
-
-//fetching data from db with parameters
-const readUser = async (req, res) => {
-  try {
-    let result = await getData("fit_user", "*", { weight: "60" });
-    console.log(result);
-    res.send(result);
-  } catch (error) {
-    console.log(error);
-    res.status(404).json({ msg: "I failed" });
-  }
-};
-
-//writing info to db with parameters
-const writeUser = async (req, res) => {
-  try {
-    let result = await insertData("fit_user", {
-      birthdate: "1989-05-12",
-      weight: 45,
-      height: 170,
-      gender: 2,
-    });
-    console.log(result);
-    res.send("added info");
-  } catch (error) {
-    console.log(error);
-    res.status(404).json({ msg: "I failed" });
-  }
-};
-
-//updating info in db with parameters
-const updateUser = async (req, res) => {
-  try {
-    let result = await updateData(
-      "test",
-      { email: "ehud123@gmail.com" },
-      { username: "Ehud" }
-    );
-    console.log(result);
-    res.send("info updated");
-  } catch (error) {
-    console.log(error);
-    res.status(404).json({ msg: "I failed" });
-  }
-};
-
-const getPic = async (req, res) => {
-  try {
-    let result = await getData("exercises", "*", { id: "1255" });
-    console.log(JSON.stringify(result[0].gifurl));
-    res.send(JSON.stringify(result[0].gifurl));
-  } catch (error) {
-    console.log(error);
-    res.status(404).json({ msg: "I failed" });
-  }
-};
-
-// function to get the exercise by equipment data from the DB
-// const getExerciseByEquip = async (req, res) => {
-//   console.log(req.body);
-//   try {
-//     let result = await getDataEquip("exercises", "*", ("equipment", req.body));
-//     // console.log(result);
-//     plan = result;
-//     console.log(plan);
-//   } catch (error) {
-//     console.log(error);
-//     res.status(404).json({ msg: "bummer" });
-//   }
-// };
 
 const bodyPartsArr = [
   "cardio",
@@ -91,7 +17,6 @@ const bodyPartsArr = [
 
 //select 2 exercises from retreived data
 const createPlan = async (req, res) => {
-  console.log(req.body);
   try {
     let plan = await getDataEquip(
       "exercises",
@@ -99,7 +24,6 @@ const createPlan = async (req, res) => {
       "equipment",
       req.body.equipment
     );
-    console.log(plan);
     for (let i = 0; i < bodyPartsArr.length; i++) {
       const filterEx = plan.filter((item) => {
         return item.bodypart == bodyPartsArr[i];
@@ -109,7 +33,6 @@ const createPlan = async (req, res) => {
       if (firstIndex === secondIndex) {
         secondIndex = Math.floor(Math.random() * filterEx.length);
       }
-      console.log(firstIndex, secondIndex);
       const userPlan = [
         {
           userid: req.body.userid,
@@ -120,9 +43,7 @@ const createPlan = async (req, res) => {
           exid: filterEx[secondIndex].id,
         },
       ];
-      console.log(userPlan);
       const result = await insertData("userplan", userPlan);
-      console.log(result.length);
     }
     res.send("yay");
   } catch (error) {
@@ -141,26 +62,12 @@ const getUserPlan = async (req, res) => {
       "exercises.exid",
       "user_target.user_id",
       "userplan.userid",
-      { userid: req.body.userid }
+      { userid: req.body.userid, target_id: req.body.target_id }
     );
-    console.log(JSON.stringify(result));
     res.send(JSON.stringify(result));
   } catch (error) {
     console.log(error);
     res.status(404).json({ msg: "couldnt make it" });
-  }
-};
-
-//retreive exercise by id data from DB
-
-const exerciseById = async () => {
-  try {
-    let result = await getData("exercises", "*", { id: "203" });
-    console.log(result);
-    res.send(result);
-  } catch (error) {
-    console.log(error);
-    res.status(404).json({ msg: "I failed" });
   }
 };
 
@@ -173,7 +80,6 @@ const insertUserDb = async (req, res) => {
     console.log(checkUserExist);
     if (checkUserExist.length === 0) {
       let result = await insertData("fit_user", req.body);
-      console.log(result);
       res.send(result);
     } else {
       res.send({ msg: "user already exists, please log in" });
@@ -194,13 +100,12 @@ const userLogin = async (req, res) => {
         email: req.body.email,
       }
     );
-    console.log(result);
     if (result.length == 0) {
-      res.send("you're not registered");
+      res.send({ msg: "you're not registered" });
     } else if (result.length > 0 && result[0].password === req.body.password) {
       res.send({ first_name: result[0].first_name, userid: result[0].id });
     } else {
-      res.send("password not correct");
+      res.send({ msg: "password not correct" });
     }
   } catch (error) {
     console.log(error);
@@ -211,7 +116,6 @@ const userLogin = async (req, res) => {
 const userTarget = async (req, res) => {
   try {
     let result = await insertData("user_target", req.body);
-    console.log(result);
     res.send("target inserted");
   } catch (error) {
     console.log(error);
@@ -219,15 +123,26 @@ const userTarget = async (req, res) => {
   }
 };
 
+const readTarget = async (req, res) => {
+  try {
+    let result = await getData("user_target", "*", {
+      user_id: req.body.user_id,
+    });
+    console.log(result);
+    console.log(req.body.user_id);
+    res.send(result);
+    console.log("i counted the targets");
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({ msg: "couldnt get number of plans" });
+  }
+};
+
 module.exports = {
   createPlan,
-  exerciseById,
-  readUser,
-  writeUser,
-  getPic,
-  updateUser,
   getUserPlan,
   insertUserDb,
   userLogin,
   userTarget,
+  readTarget,
 };

@@ -12,7 +12,6 @@ function Exercise(props) {
         <p>Sets: {props.sets}</p>
         <p>Reps: {props.reps}</p>
         <p>Rest: {props.rest}</p>
-        {/* <p>{props.gifurl}</p> */}
         <img alt="" src={props.url} style={{ width: 150, height: 150 }}></img>
       </div>
     </div>

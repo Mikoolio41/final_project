@@ -2,7 +2,7 @@ import React from "react";
 import Exercise from "../components/Exercise";
 import { useState, useEffect } from "react";
 
-function UserPlan() {
+function UserPlan(props) {
   const [viewUserPlan, setViewUserPlan] = useState();
   let planTarget;
 
@@ -13,7 +13,8 @@ function UserPlan() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        userid: sessionStorage.getItem("userid"),
+        userid: props.user_id,
+        target_id: props.target_id,
       }),
     });
     let json = await response.json();
@@ -28,7 +29,7 @@ function UserPlan() {
   // define different training target parameters
   if (viewUserPlan) {
     return viewUserPlan.map((item, index) => {
-      console.log(item.target_id);
+      // console.log(item.target_id);
       switch (item.target_id) {
         case 1:
           planTarget = { sets: 5, reps: 8, rest: 90 };
@@ -46,7 +47,6 @@ function UserPlan() {
           planTarget = { sets: 3, reps: 12, rest: 60 };
           break;
       }
-      console.log(planTarget);
       return (
         <div key={index}>
           <Exercise

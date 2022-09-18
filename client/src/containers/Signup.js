@@ -39,15 +39,11 @@ function Signup() {
       body: JSON.stringify(userData),
     });
     let userExists = await response.json();
-    console.log(userExists);
     if (userExists.msg === "user already exists, please log in") {
       alert("user already exists, please log in");
     } else {
-      if (sessionStorage.getItem("userid") !== null) {
-        navigate("/profile");
-      } else {
-        sessionStorage.setItem("userid", userExists[0].id);
-      }
+      sessionStorage.setItem("userid", userExists[0].id);
+      navigate("/profile");
     }
   };
 

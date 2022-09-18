@@ -1,69 +1,77 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "../components/styles/PlanCard.css";
-// import UserPlan from "../containers/UserPlan";
-import Exercise from "./Exercise";
+import UserPlan from "../containers/UserPlan";
 
 function PlanCard() {
-  return (
-    <div className="App">
-      <h1>MY PLANS</h1>
-      <Tabs>
-        <TabList>
-          <Tab>
-            <p>Title 1</p>
-          </Tab>
-          <Tab>
-            <p>Title 2</p>
-          </Tab>
-          <Tab>
-            <p>Title 3</p>
-          </Tab>
-          <Tab>
-            <p>Title 4</p>
-          </Tab>
-          <Tab>
-            <p>Title 5</p>
-          </Tab>
-        </TabList>
-        <TabPanel>
-          <div className="panel-content">
-            <h2>
-              <Exercise />
-            </h2>
-          </div>
-        </TabPanel>
-        <TabPanel>
-          <div className="panel-content">
-            <h2>
-              <Exercise />
-            </h2>
-          </div>
-        </TabPanel>
-        <TabPanel>
-          <div className="panel-content">
-            <h2>
-              <Exercise />
-            </h2>
-          </div>
-        </TabPanel>
-        <TabPanel>
-          <div className="panel-content">
-            <h2>
-              <Exercise />
-            </h2>
-          </div>
-        </TabPanel>
-        <TabPanel>
-          <div className="panel-content">
-            <h2>
-              <Exercise />
-            </h2>
-          </div>
-        </TabPanel>
-      </Tabs>
-    </div>
-  );
+  const [numberTarget, setNumberTarget] = useState();
+
+  const numberPlans = async () => {
+    const result = await fetch("/number_target", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user_id: sessionStorage.getItem("userid"),
+      }),
+    });
+    let json = await result.json();
+    setNumberTarget(json);
+  };
+
+  useEffect(() => {
+    numberPlans();
+  }, []);
+
+  // return console.log(numberTarget);
+
+  if (numberTarget) {
+    return numberTarget.map((item, index) => {
+      return (
+        <div>
+          <Tabs>
+            <TabList key={index}>
+              <Tab>{item.target_id.toString()}</Tab>
+            </TabList>
+            <TabPanel>
+              <div className="panel-content">
+                <h2>
+                  <UserPlan user_id={item.user_id} target_id={item.target_id} />
+                </h2>
+              </div>
+            </TabPanel>
+          </Tabs>
+        </div>
+      );
+    });
+  } else {
+    <div>Loading...</div>;
+  }
 }
 
 export default PlanCard;
+
+// if (numberTarget) {
+//   return numberTarget.map((item, index) => {
+//     return (
+//       <div key={index} className="App">
+//         <h1>MY PLANS</h1>
+//         <Tabs>
+//           <TabList>
+//             <Tab>{item.target_id.toString()}</Tab>
+//           </TabList>
+//           <TabPanel>
+//             <div className="panel-content">
+//               <h2>
+//                 <UserPlan user_id={item.user_id} />
+//               </h2>
+//             </div>
+//           </TabPanel>
+//         </Tabs>
+//       </div>
+//     );
+//   });
+// } else {
+//   <div>Loading...</div>;
+// }
