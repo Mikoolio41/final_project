@@ -14,15 +14,15 @@ function UserPlan(props) {
       },
       body: JSON.stringify({
         userid: props.user_id,
-        target_id: props.target_id,
       }),
     });
     let json = await response.json();
+    console.log(json);
     setViewUserPlan(json);
   };
 
+  // insert training purpose query to db
   useEffect(() => {
-    // insert training purpose query to db
     viewPlan();
   }, []);
 

@@ -62,9 +62,11 @@ const getUserPlan = async (req, res) => {
       "exercises.exid",
       "user_target.user_id",
       "userplan.userid",
-      { userid: req.body.userid, target_id: req.body.target_id }
+      { userid: req.body.userid }
+      // { target_id: req.body.target_id }
     );
     res.send(JSON.stringify(result));
+    console.log(result.length);
   } catch (error) {
     console.log(error);
     res.status(404).json({ msg: "couldnt make it" });

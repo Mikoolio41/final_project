@@ -30,14 +30,14 @@ function PlanCard() {
     return numberTarget.map((item, index) => {
       return (
         <div>
-          <Tabs>
-            <TabList key={index}>
+          <Tabs key={index}>
+            <TabList>
               <Tab>{item.target_id.toString()}</Tab>
             </TabList>
             <TabPanel>
               <div className="panel-content">
                 <h2>
-                  <UserPlan user_id={item.user_id} target_id={item.target_id} />
+                  <UserPlan user_id={item.user_id} />
                 </h2>
               </div>
             </TabPanel>
