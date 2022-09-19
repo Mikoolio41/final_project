@@ -3,6 +3,7 @@ const {
   getData,
   getDataEquip,
   getJoinData,
+  getGroupBy,
 } = require("../modules/plansInput");
 
 const bodyPartsArr = [
@@ -37,10 +38,12 @@ const createPlan = async (req, res) => {
         {
           userid: req.body.userid,
           exid: filterEx[firstIndex].id,
+          target_id: req.body.target_id,
         },
         {
           userid: req.body.userid,
           exid: filterEx[secondIndex].id,
+          target_id: req.body.target_id,
         },
       ];
       const result = await insertData("userplan", userPlan);
@@ -57,13 +60,10 @@ const getUserPlan = async (req, res) => {
     let result = await getJoinData(
       "userplan",
       "exercises",
-      "user_target",
       "userplan.exid",
       "exercises.exid",
-      "user_target.user_id",
-      "userplan.userid",
-      { userid: req.body.userid }
-      // { target_id: req.body.target_id }
+      { userid: req.body.userid },
+      { target_id: req.body.target_id }
     );
     res.send(JSON.stringify(result));
     console.log(result.length);
@@ -115,28 +115,20 @@ const userLogin = async (req, res) => {
   }
 };
 
-const userTarget = async (req, res) => {
+const numberPlans = async (req, res) => {
   try {
-    let result = await insertData("user_target", req.body);
-    res.send("target inserted");
-  } catch (error) {
-    console.log(error);
-    res.status(404).json({ msg: "could not insert target" });
-  }
-};
-
-const readTarget = async (req, res) => {
-  try {
-    let result = await getData("user_target", "*", {
-      user_id: req.body.user_id,
-    });
-    console.log(result);
-    console.log(req.body.user_id);
+    let result = await getGroupBy(
+      "userplan",
+      "target_id",
+      {
+        userid: req.body.userid,
+      },
+      "target_id"
+    );
     res.send(result);
-    console.log("i counted the targets");
   } catch (error) {
     console.log(error);
-    res.status(404).json({ msg: "couldnt get number of plans" });
+    res.status(404).json({ msg: "could not get plans" });
   }
 };
 
@@ -145,6 +137,5 @@ module.exports = {
   getUserPlan,
   insertUserDb,
   userLogin,
-  userTarget,
-  readTarget,
+  numberPlans,
 };

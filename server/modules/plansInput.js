@@ -16,20 +16,20 @@ const insertData = (table, inputData) => {
 const getJoinData = (
   table1,
   table2,
-  table3,
   column1,
   column2,
-  column3,
-  column4,
-  criteria1
-  // criteria2
+  criteria1,
+  criteria2
 ) => {
   return db(table1)
     .join(table2, column1, "=", column2)
-    .join(table3, column3, "=", column4)
     .select("*")
-    .where(criteria1);
-  // .where(criteria2);
+    .where(criteria1)
+    .andWhere(criteria2);
+};
+
+const getGroupBy = (table, column, where, group) => {
+  return db(table).select(column).where(where).groupBy(group);
 };
 
 module.exports = {
@@ -37,4 +37,5 @@ module.exports = {
   insertData,
   getDataEquip,
   getJoinData,
+  getGroupBy,
 };

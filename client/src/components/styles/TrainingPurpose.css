@@ -3,13 +3,13 @@
 
 .targetContainer {
   padding: 40px 80px;
-  background-color: rgb(221, 201, 173);
+  background-color: rgb(255, 255, 255);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 45px;
   row-gap: 18px;
   color: black;
-  margin: 10px auto;
+  margin-top: 80px;
   border-radius: 5px;
   position: relative;
   left: 50%;

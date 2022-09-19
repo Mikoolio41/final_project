@@ -34,42 +34,44 @@ function Profile() {
       body: JSON.stringify({
         equipment: selectEquip,
         userid: sessionStorage.getItem("userid"),
+        target_id: infoTarget,
       }),
     });
     let planCreated = await response.text();
     if (planCreated === "yay") {
+      navigate("/plan");
     }
   };
 
-  const insertUserTarget = async () => {
-    // console.log(infoTarget);
-    const result = await fetch("/user_target", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        user_id: sessionStorage.getItem("userid"),
-        target_id: infoTarget,
-      }),
-    });
-    let targetSelected = await result.text();
-    if (targetSelected === "target inserted") {
-      console.log("succeeded");
-    }
-    navigate("/plan");
-  };
+  // const insertUserTarget = async () => {
+  //   // console.log(infoTarget);
+  //   const result = await fetch("/user_target", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       user_id: sessionStorage.getItem("userid"),
+  //       target_id: infoTarget,
+  //     }),
+  //   });
+  //   let targetSelected = await result.text();
+  //   if (targetSelected === "target inserted") {
+  //     console.log("succeeded");
+  //   }
+  //   navigate("/plan");
+  // };
 
   return (
     <div>
       <Navbar />
+      <TrainingPurpose handleChange={getInfoTarget} />
       <Equipment handleChange={getInfoEquip} />{" "}
+      {/* <button className={styles.navigateBtn} onClick={insertUserTarget}>
+        Take me to my plan!
+      </button> */}
       <button className={styles.createBtn} onClick={createEquipPlan}>
         Create My Plan!
-      </button>
-      <TrainingPurpose handleChange={getInfoTarget} />
-      <button className={styles.navigateBtn} onClick={insertUserTarget}>
-        Take me to my plan!
       </button>
     </div>
   );

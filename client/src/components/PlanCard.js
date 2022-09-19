@@ -4,30 +4,49 @@ import "../components/styles/PlanCard.css";
 import UserPlan from "../containers/UserPlan";
 
 function PlanCard() {
-  const [numberTarget, setNumberTarget] = useState();
+  // const [existingPlan, setExistingPlan] = useState();
+  const [numberPlans, setNumberPlans] = useState();
 
-  const numberPlans = async () => {
-    const result = await fetch("/number_target", {
+  const numberOfPlans = async () => {
+    const result = await fetch("/number_plans", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        user_id: sessionStorage.getItem("userid"),
+        userid: sessionStorage.getItem("userid"),
       }),
     });
     let json = await result.json();
-    setNumberTarget(json);
+    setNumberPlans(json);
+    console.log(numberPlans);
   };
 
+  // const displayPlans = async () => {
+  //   const result = await fetch("/userplan", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       user_id: sessionStorage.getItem("userid"),
+  //     }),
+  //   });
+  //   let json = await result.json();
+  //   setExistingPlan(json);
+  // console.log(existingPlan);
+  // };
+
   useEffect(() => {
-    numberPlans();
+    numberOfPlans();
   }, []);
 
-  // return console.log(numberTarget);
+  // useEffect(() => {
+  //   displayPlans();
+  // }, []);
 
-  if (numberTarget) {
-    return numberTarget.map((item, index) => {
+  if (numberPlans) {
+    return numberPlans.map((item, index) => {
       return (
         <div>
           <Tabs key={index}>
@@ -37,7 +56,7 @@ function PlanCard() {
             <TabPanel>
               <div className="panel-content">
                 <h2>
-                  <UserPlan user_id={item.user_id} />
+                  <UserPlan target_id={item.target_id} />
                 </h2>
               </div>
             </TabPanel>

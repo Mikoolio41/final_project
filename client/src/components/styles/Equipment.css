@@ -3,14 +3,14 @@
 
 .checkboxContainer {
   padding: 80px 80px;
-  background-color: rgb(221, 201, 173);
+  background-color: rgb(255, 255, 255);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 14px;
   column-gap: 45px;
   row-gap: 18px;
   color: black;
-  margin-top: 90px;
+  margin-top: 20px;
   border-radius: 5px;
   position: relative;
   left: 50%;

@@ -13,7 +13,8 @@ function UserPlan(props) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        userid: props.user_id,
+        userid: sessionStorage.getItem("userid"),
+        target_id: props.target_id,
       }),
     });
     let json = await response.json();
