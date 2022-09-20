@@ -6,13 +6,13 @@ function Exercise(props) {
     <div>
       <div className={styles.exContainer}>
         <p>Target: {props.target}</p>
+        <img alt="" src={props.url} style={{ width: 80, height: 80 }}></img>
         <p>Exercise Name: {props.name}</p>
         <p>Bodypart: {props.bodypart}</p>
         <p>Equipment: {props.equipment}</p>
         <p>Sets: {props.sets}</p>
         <p>Reps: {props.reps}</p>
         <p>Rest: {props.rest}</p>
-        <img alt="" src={props.url} style={{ width: 150, height: 150 }}></img>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React from "react";
 import Exercise from "../components/Exercise";
 import { useState, useEffect } from "react";
+import styles from "./styles/UserPlan.module.css";
 
 function UserPlan(props) {
   const [viewUserPlan, setViewUserPlan] = useState();
