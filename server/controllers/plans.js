@@ -60,8 +60,11 @@ const getUserPlan = async (req, res) => {
     let result = await getJoinData(
       "userplan",
       "exercises",
+      "target_type",
       "userplan.exid",
       "exercises.exid",
+      "userplan.target_id",
+      "target_type.id",
       { userid: req.body.userid },
       { target_id: req.body.target_id }
     );
@@ -119,11 +122,15 @@ const numberPlans = async (req, res) => {
   try {
     let result = await getGroupBy(
       "userplan",
-      "target_id",
+      "target_type",
+      "userplan.target_id",
+      "target_type.id",
+      "target_type.target",
       {
         userid: req.body.userid,
-      },
-      "target_id"
+      }
+      // "userplan.target_id",
+      // "target_type.target"
     );
     res.send(result);
   } catch (error) {

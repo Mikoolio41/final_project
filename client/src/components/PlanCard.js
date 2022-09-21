@@ -25,12 +25,13 @@ function PlanCard() {
   }, []);
 
   if (numberPlans) {
+    console.log(numberPlans);
     return (
       <div>
         <Tabs>
           <TabList className={styles.cardList}>
             {numberPlans.map((item, index) => {
-              return <Tab key={index}>{item.target_id.toString()}</Tab>;
+              return <Tab key={index}>{item.target}</Tab>;
             })}
           </TabList>
           <div className={styles.panelContent}>
