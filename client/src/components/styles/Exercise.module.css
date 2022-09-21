@@ -1,17 +1,22 @@
 .exContainer {
   /* margin-top: 90px; */
   width: 250px;
-  height: 190px;
+  height: 233px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(6, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   font-size: 12px;
   font-weight: 500;
   border: 2px solid rgb(255, 255, 255);
-  margin-bottom: 90px;
-  /* justify-content: flex-start; */
+  margin-bottom: 50px;
+  gap: 10px;
 }
 
 p {
   color: white;
+}
+
+img {
+  height: 60px;
+  width: 80px;
 }

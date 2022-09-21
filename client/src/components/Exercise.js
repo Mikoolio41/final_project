@@ -6,7 +6,7 @@ function Exercise(props) {
     <div>
       <div className={styles.exContainer}>
         <p>Target: {props.target}</p>
-        <img alt="" src={props.url} style={{ width: 80, height: 80 }}></img>
+        <img alt="" src={props.url}></img>
         <p>Exercise Name: {props.name}</p>
         <p>Bodypart: {props.bodypart}</p>
         <p>Equipment: {props.equipment}</p>

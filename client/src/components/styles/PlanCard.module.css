@@ -1,7 +1,7 @@
 .App {
   font-family: sans-serif;
   background: #1c1d1f;
-  background: #525252;
+  /* background: #525252; */
   color: white;
   height: fit-content;
   width: 90vw;
@@ -26,7 +26,7 @@
 
 .react-tabs__tab-list {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 170px;
   margin: 0;
   padding: 0;
