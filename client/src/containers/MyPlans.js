@@ -5,10 +5,12 @@ import styles from "../components/styles/PlanCard.module.css";
 
 function MyPlans() {
   return (
-    <div className={styles.App}>
+    <>
       <h1>MY PLANS</h1>
-      <PlanCard />
-    </div>
+      <div className={styles.App}>
+        <PlanCard />
+      </div>
+    </>
   );
 }
 

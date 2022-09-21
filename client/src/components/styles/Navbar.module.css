@@ -11,7 +11,7 @@
   left: 0;
 }
 
-li,
+.listItem,
 a {
   list-style: none;
   text-decoration: none;

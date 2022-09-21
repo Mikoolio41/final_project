@@ -5,14 +5,14 @@ function Exercise(props) {
   return (
     <div>
       <div className={styles.exContainer}>
-        <p>Target: {props.target}</p>
         <img alt="" src={props.url}></img>
-        <p>Exercise Name: {props.name}</p>
-        <p>Bodypart: {props.bodypart}</p>
-        <p>Equipment: {props.equipment}</p>
-        <p>Sets: {props.sets}</p>
-        <p>Reps: {props.reps}</p>
-        <p>Rest: {props.rest}</p>
+        <span>Target: {props.target}</span>
+        <span>Exercise Name: {props.name}</span>
+        <span>Bodypart: {props.bodypart}</span>
+        <span>Equipment: {props.equipment}</span>
+        <span>
+          Sets: {props.sets}, Reps: {props.reps}, Rest: {props.rest}
+        </span>
       </div>
     </div>
   );

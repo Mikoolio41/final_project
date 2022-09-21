@@ -1,7 +1,7 @@
 import React from "react";
 import Exercise from "../components/Exercise";
 import { useState, useEffect } from "react";
-import styles from "./styles/UserPlan.module.css";
+// import styles from "./styles/UserPlan.module.css";
 
 function UserPlan(props) {
   const [viewUserPlan, setViewUserPlan] = useState();
@@ -19,19 +19,17 @@ function UserPlan(props) {
       }),
     });
     let json = await response.json();
-    console.log(json);
     setViewUserPlan(json);
   };
 
   // insert training purpose query to db
   useEffect(() => {
     viewPlan();
-  }, []);
+  });
 
   // define different training target parameters
   if (viewUserPlan) {
     return viewUserPlan.map((item, index) => {
-      // console.log(item.target_id);
       switch (item.target_id) {
         case 1:
           planTarget = { sets: 5, reps: 8, rest: 90 };
