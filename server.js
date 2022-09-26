@@ -1,11 +1,11 @@
 const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
-const router = require("../server/routes/plans");
+const router = require("./routes/plans");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
-dotenv.config({ path: "C:/GitHub/final_project/server/.env" });
+dotenv.config({ path: "C:/GitHub/final_project/.env" });
 
 //starting the process
 app.listen(process.env.PORT || 8080, () => {
