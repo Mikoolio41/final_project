@@ -15,8 +15,9 @@ function Login() {
       email: email,
       password: password.password,
     };
-    const response = await fetch("https://workitout2.herokuapp.com/login", {
+    const response = await fetch("/login", {
       method: "POST",
+      // mode: "no-cors",
       headers: {
         "Content-Type": "application/json",
       },
