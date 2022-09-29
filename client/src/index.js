@@ -6,8 +6,4 @@ import App from "./App";
 // import PhoneBreakpoint from "./components/responsive_utilities/phone_breakpoint";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <div>
-    <App />
-  </div>
-);
+root.render(<App />);
