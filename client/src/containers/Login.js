@@ -13,7 +13,7 @@ function Login() {
     event.preventDefault();
     let userLogin = {
       email: email,
-      password: password,
+      password: password.password,
     };
     console.log(userLogin);
     const response = await fetch("/login", {
