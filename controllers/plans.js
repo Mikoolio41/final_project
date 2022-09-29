@@ -108,8 +108,10 @@ const userLogin = async (req, res) => {
     if (result.length == 0) {
       res.send({ msg: "you're not registered" });
     } else if (result.length > 0 && result[0].password === req.body.password) {
-      res.send({ msg: result[0].password });
-      // res.send({ first_name: result[0].first_name, userid: result[0].id });
+      // res.send({ msg: result[0].password });
+      res.send({
+        msg: { first_name: result[0].first_name, userid: result[0].id },
+      });
     } else {
       res.send({ msg: "password incorrect" });
     }
