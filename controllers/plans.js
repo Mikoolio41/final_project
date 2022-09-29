@@ -111,7 +111,7 @@ const userLogin = async (req, res) => {
       res.send({ msg: result[0].password });
       // res.send({ first_name: result[0].first_name, userid: result[0].id });
     } else {
-      res.send({ msg: result[0].password });
+      res.send({ msg: "password incorrect" });
     }
   } catch (error) {
     console.log(error);
