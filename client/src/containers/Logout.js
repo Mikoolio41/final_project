@@ -6,7 +6,7 @@ function Logout() {
   let navigate = useNavigate();
   const userLogout = () => {
     sessionStorage.clear("userid");
-    navigate("/login");
+    navigate("/");
   };
   useEffect(() => {
     userLogout();
