@@ -7,6 +7,7 @@ import Login from "./containers/Login";
 import Profile from "./containers/Profile";
 import Navbar from "./components/Navbar";
 import MyPlans from "./containers/MyPlans";
+import Logout from "./containers/Logout";
 // import "./styles/index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -19,6 +20,7 @@ root.render(
       <Route path="/login" element={<Login />} />
       <Route path="/plan" element={<MyPlans />} />
       <Route path="/profile" element={<Profile />} />
+      <Route path="/logout" element={<Logout />} />
     </Routes>
   </BrowserRouter>
 );
