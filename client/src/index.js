@@ -14,8 +14,8 @@ root.render(
     <TabletBreakpoint>
       <App />
     </TabletBreakpoint>
-    <PhoneBreakpoint>
+    {/* <PhoneBreakpoint>
       <App />
-    </PhoneBreakpoint>
+    </PhoneBreakpoint> */}
   </div>
 );
