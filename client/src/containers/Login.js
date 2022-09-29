@@ -24,7 +24,7 @@ function Login() {
       body: JSON.stringify(userLogin),
     });
     let userLoggedIn = await response.json();
-    console.log(userLoggedIn);
+    console.log(await userLoggedIn);
     if (userLoggedIn.userid > 0) {
       sessionStorage.setItem("userid", userLoggedIn.userid);
       navigate("/plan");
