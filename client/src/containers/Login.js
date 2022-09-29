@@ -15,9 +15,9 @@ function Login() {
       email: email,
       password: password.password,
     };
+    console.log(userLogin);
     const response = await fetch("/login", {
       method: "POST",
-      // mode: "no-cors",
       headers: {
         "Content-Type": "application/json",
       },
