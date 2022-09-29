@@ -7,7 +7,7 @@ import Login from "./containers/Login";
 import Profile from "./containers/Profile";
 import Navbar from "./components/Navbar";
 import MyPlans from "./containers/MyPlans";
-import "./styles/index.css";
+// import "./styles/index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
