@@ -24,6 +24,18 @@ a:hover {
   border-radius: 5px;
 }
 
+.navContainer .checkbox {
+  position: absolute;
+  display: block;
+  height: 32px;
+  width: 32px;
+  top: 20px;
+  left: 20px;
+  z-index: 5;
+  opacity: 0;
+  cursor: pointer;
+}
+
 .navContainer .hamburgerLines {
   display: block;
   height: 26px;
@@ -57,4 +69,20 @@ a:hover {
 .navContainer .hamburgerLines .line3 {
   transform-origin: 0% 100%;
   transition: transform 0.4s ease-in-out;
+}
+
+.navContainer input[type="checkbox"]:checked ~ .listItem {
+  transform: translateX(0);
+}
+
+.navContainer input[type="checkbox"]:checked ~ .hamburgerLines .line1 {
+  transform: rotate(45deg);
+}
+
+.navContainer input[type="checkbox"]:checked ~ .hamburgerLines .line2 {
+  transform: scaleY(0);
+}
+
+.navContainer input[type="checkbox"]:checked ~ .hamburgerLines .line3 {
+  transform: rotate(-45deg);
 }

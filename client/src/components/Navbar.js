@@ -23,7 +23,10 @@ function Navbar({ showTopNavMenu }) {
       <li className={`${styles.listItem} ${styles.line} ${styles.line3}`}>
         <Link to="/logout">Logout</Link>
       </li>
-      <span className={styles.hamburgerLines} style={showMenuIcon} />
+      <span
+        className={`${styles.hamburgerLines} ${styles.checkbox}`}
+        style={showMenuIcon}
+      />
     </div>
   );
 }
