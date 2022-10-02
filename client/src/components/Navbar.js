@@ -11,16 +11,16 @@ function Navbar({ showTopNavMenu }) {
   };
   return (
     <div className={styles.navContainer} style={showNav}>
-      <li className={styles.listItem} style={showMenuIcon}>
+      <li className={styles.listItem}>
         <Link to="/">WorkItOut</Link>
       </li>
-      <li className={styles.listItem} style={showMenuIcon}>
+      <li className={styles.listItem}>
         <Link to="/plan">My Plans</Link>
       </li>
-      <li className={styles.listItem} style={showMenuIcon}>
+      <li className={styles.listItem}>
         <Link to="/profile">My Profile</Link>
       </li>
-      <li className={styles.listItem} style={showMenuIcon}>
+      <li className={styles.listItem}>
         <Link to="/logout">Logout</Link>
       </li>
     </div>
