@@ -10,8 +10,11 @@ function Navbar({ showTopNavMenu }) {
     display: showTopNavMenu ? "none" : "flex",
   };
   return (
-    <>
-      <div className={styles.navContainer} style={showNav}>
+    <div className={styles.navbar}>
+      <div
+        className={`${styles.navContainer} ${styles.container}`}
+        style={showNav}
+      >
         <li className={styles.listItem}>
           <Link to="/">WorkItOut</Link>
         </li>
@@ -37,7 +40,7 @@ function Navbar({ showTopNavMenu }) {
         <span className={`${styles.line} ${styles.line2}`}></span>
         <span className={`${styles.line} ${styles.line3}`}></span>
       </div>
-    </>
+    </div>
   );
 }
 
