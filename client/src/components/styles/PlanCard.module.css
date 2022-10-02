@@ -1,10 +1,10 @@
 .App {
   font-family: sans-serif;
   background: #1c1d1f;
-  /* background: #525252; */
+  background: #525252;
   color: white;
   height: fit-content;
-  width: 90vw;
+  width: fit-content;
   box-sizing: border-box;
   margin-top: 90px;
   display: flex;
