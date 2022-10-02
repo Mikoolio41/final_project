@@ -2,9 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./styles/Navbar.module.css";
 
-function Navbar() {
+function Navbar({ showTopNavMenu }) {
+  const showNav = {
+    display: showTopNavMenu ? "flex" : "none",
+  };
+  // const showMenuIcon = {
+  //   display: showTopNavMenu ? "none" : "flex",
+  // };
   return (
-    <div className={styles.navContainer}>
+    <div className={styles.navContainer} style={showNav}>
       <li className={styles.listItem}>
         <Link to="/">WorkItOut</Link>
       </li>
