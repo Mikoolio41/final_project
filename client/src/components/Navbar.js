@@ -10,7 +10,21 @@ function Navbar({ showTopNavMenu }) {
     display: showTopNavMenu ? "none" : "flex",
   };
   return (
-    <div className={styles.navContainer} style={showNav}>
+    <>
+      <div className={styles.navContainer} style={showNav}>
+        <li className={styles.listItem}>
+          <Link to="/">WorkItOut</Link>
+        </li>
+        <li className={styles.listItem}>
+          <Link to="/plan">My Plans</Link>
+        </li>
+        <li className={styles.listItem}>
+          <Link to="/profile">My Profile</Link>
+        </li>
+        <li className={styles.listItem}>
+          <Link to="/logout">Logout</Link>
+        </li>
+      </div>
       <input
         className={styles.checkbox}
         type="checkbox"
@@ -23,19 +37,7 @@ function Navbar({ showTopNavMenu }) {
         <span className={`${styles.line} ${styles.line2}`}></span>
         <span className={`${styles.line} ${styles.line3}`}></span>
       </div>
-      <li className={styles.listItem}>
-        <Link to="/">WorkItOut</Link>
-      </li>
-      <li className={styles.listItem}>
-        <Link to="/plan">My Plans</Link>
-      </li>
-      <li className={styles.listItem}>
-        <Link to="/profile">My Profile</Link>
-      </li>
-      <li className={styles.listItem}>
-        <Link to="/logout">Logout</Link>
-      </li>
-    </div>
+    </>
   );
 }
 
