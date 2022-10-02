@@ -11,20 +11,20 @@ function Navbar({ showTopNavMenu }) {
   };
   return (
     <div className={styles.navContainer} style={showNav}>
-      <li className={`${styles.listItem} ${styles.line}`}>
+      <li className={styles.listItem}>
         <Link to="/">WorkItOut</Link>
       </li>
-      <li className={`${styles.listItem} ${styles.line} ${styles.line1}`}>
+      <li className={styles.listItem}>
         <Link to="/plan">My Plans</Link>
       </li>
-      <li className={`${styles.listItem} ${styles.line} ${styles.line2}`}>
+      <li className={styles.listItem}>
         <Link to="/profile">My Profile</Link>
       </li>
-      <li className={`${styles.listItem} ${styles.line} ${styles.line3}`}>
+      <li className={styles.listItem}>
         <Link to="/logout">Logout</Link>
       </li>
       <span
-        className={`${styles.hamburgerLines} ${styles.checkbox}`}
+        className={`${styles.hamburgerLines} ${styles.checkbox} ${styles.line} ${styles.line1} ${styles.line2} ${styles.line3}`}
         style={showMenuIcon}
       />
     </div>
