@@ -33,7 +33,7 @@ a:hover {
   left: 20px;
   z-index: 5;
   opacity: 1;
-  color: red;
+  color: blue;
   cursor: pointer;
 }
 
@@ -48,6 +48,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  color: red;
 }
 
 .navContainer .hamburgerLines .line {
