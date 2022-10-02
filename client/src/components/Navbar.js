@@ -11,6 +11,18 @@ function Navbar({ showTopNavMenu }) {
   };
   return (
     <div className={styles.navContainer} style={showNav}>
+      <input
+        className={styles.checkbox}
+        type="checkbox"
+        name=""
+        id=""
+        style={showMenuIcon}
+      />
+      <div className={styles.hamburgerLines}>
+        <span className={`${styles.line} ${styles.line1}`}></span>
+        <span className={`${styles.line} ${styles.line2}`}></span>
+        <span className={`${styles.line} ${styles.line3}`}></span>
+      </div>
       <li className={styles.listItem}>
         <Link to="/">WorkItOut</Link>
       </li>
@@ -23,10 +35,6 @@ function Navbar({ showTopNavMenu }) {
       <li className={styles.listItem}>
         <Link to="/logout">Logout</Link>
       </li>
-      <span
-        className={`${styles.hamburgerLines} ${styles.checkbox} ${styles.line} ${styles.line1} ${styles.line2} ${styles.line3}`}
-        style={showMenuIcon}
-      />
     </div>
   );
 }
