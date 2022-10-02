@@ -32,7 +32,8 @@ a:hover {
   top: 20px;
   left: 20px;
   z-index: 5;
-  opacity: 0;
+  opacity: 1;
+  color: red;
   cursor: pointer;
 }
 
