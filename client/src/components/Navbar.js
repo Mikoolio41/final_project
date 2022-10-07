@@ -2,44 +2,30 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./styles/Navbar.module.css";
 
-function Navbar({ showTopNavMenu }) {
-  const showNav = {
-    display: showTopNavMenu ? "flex" : "none",
-  };
-  const showMenuIcon = {
-    display: showTopNavMenu ? "none" : "flex",
-  };
+function Navbar() {
   return (
-    <div className={styles.navbar}>
-      <div
-        className={`${styles.navContainer} ${styles.container}`}
-        style={showNav}
-      >
-        <li className={styles.listItem}>
-          <Link to="/">WorkItOut</Link>
-        </li>
-        <li className={styles.listItem}>
-          <Link to="/plan">My Plans</Link>
-        </li>
-        <li className={styles.listItem}>
-          <Link to="/profile">My Profile</Link>
-        </li>
-        <li className={styles.listItem}>
-          <Link to="/logout">Logout</Link>
-        </li>
-      </div>
-      <input
-        className={styles.checkbox}
-        type="checkbox"
-        name=""
-        id=""
-        style={showMenuIcon}
-      />
-      <div className={styles.hamburgerLines}>
-        <span className={`${styles.line} ${styles.line1}`}></span>
-        <span className={`${styles.line} ${styles.line2}`}></span>
-        <span className={`${styles.line} ${styles.line3}`}></span>
-      </div>
+    <div className={styles.navContainer}>
+      <header className={styles.header}>
+        <Link to="/" className={styles.logo}>
+          WorkItOut
+        </Link>
+        <input className={styles.menuBtn} type="checkbox" id={styles.menuBtn} />
+        <label className={styles.menuIcon} for={styles.menuBtn}>
+          <span className={styles.navicon}></span>
+        </label>
+        <ul className={styles.menu}>
+          <li>
+            <Link to="/plan">My Plans</Link>
+          </li>
+          <li>
+            <Link to="/profile">Equipment & Purpose</Link>
+          </li>
+          <li>
+            <Link to="/logout">Logout</Link>
+          </li>
+        </ul>
+      </header>
+      ;
     </div>
   );
 }
