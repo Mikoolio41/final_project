@@ -1,6 +1,12 @@
 @import "https://fonts.googleapis.com/css?family=Roboto:100,300";
 @import "https://fonts.googleapis.com/css?family=Roboto+Mono:300,700";
 
+body {
+  margin: 0;
+  font-family: Helvetica, sans-serif;
+  background-color: #f4f4f4;
+}
+
 .navContainer {
   display: flex;
   justify-content: space-between;
