@@ -64,7 +64,6 @@ function Profile() {
 
   return (
     <div>
-      <Navbar />
       <TrainingPurpose handleChange={getInfoTarget} />
       <Equipment handleChange={getInfoEquip} />{" "}
       {/* <button className={styles.navigateBtn} onClick={insertUserTarget}>
