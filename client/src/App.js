@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Homepage from "./containers/Homepage";
 import Signup from "./containers/Signup";
@@ -9,25 +9,25 @@ import MyPlans from "./containers/MyPlans";
 import Logout from "./containers/Logout";
 
 function App() {
-  const [width, setWindowWidth] = useState(0);
-  useEffect(() => {
-    updateDimensions();
+  // const [width, setWindowWidth] = useState(0);
+  // useEffect(() => {
+  //   updateDimensions();
 
-    window.addEventListener("resize", updateDimensions);
-    return () => window.removeEventListener("resize", updateDimensions);
-  }, []);
+  //   window.addEventListener("resize", updateDimensions);
+  //   return () => window.removeEventListener("resize", updateDimensions);
+  // }, []);
 
-  const updateDimensions = () => {
-    const width = window.innerWidth;
-    setWindowWidth(width);
-  };
+  // const updateDimensions = () => {
+  //   const width = window.innerWidth;
+  //   setWindowWidth(width);
+  // };
 
-  const responsive = {
-    showTopNavMenu: width > 1023,
-  };
+  // const responsive = {
+  //   showTopNavMenu: width > 1023,
+  // };
   return (
     <BrowserRouter>
-      <Navbar showTopNavMenu={responsive.showTopNavMenu} />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/register" element={<Signup />} />
