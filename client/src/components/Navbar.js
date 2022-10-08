@@ -4,7 +4,7 @@ import styles from "./styles/Navbar.module.css";
 
 function Navbar() {
   return (
-    <div className={styles.navContainer}>
+    <div>
       <header className={styles.header}>
         <Link to="/" className={styles.logo}>
           WorkItOut
