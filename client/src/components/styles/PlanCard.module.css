@@ -1,29 +1,44 @@
-.plansHeader {
-  color: red;
-  margin: 90px 30px;
+@import url("https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap");
+
+.plancardHeaderContainer {
+  /* margin-top: 30px; */
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.plansHeader {
+  color: #551a8b;
+  font-family: "Maven Pro", sans-serif;
+  font-size: 50px;
+  margin-top: 80px;
+  margin-right: 700px;
 }
 
 .App {
-  font-family: sans-serif;
-  background: #1c1d1f;
-  /* background: #525252; */
-  color: white;
+  font-family: "Maven Pro", sans-serif;
+  background: #5c4871;
+  color: rgb(193, 177, 205);
   height: fit-content;
   width: fit-content;
   box-sizing: border-box;
-  /* margin-top: 90px; */
   display: flex;
   justify-content: center;
-  /* flex-direction: column; */
-  /* justify-content: flex-start; */
+  align-items: center;
+  border-radius: 5px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .containerPlan {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  /* grid-template-rows: 1fr 1fr 1fr; */
+  margin: auto 30px;
 }
 
 .react-tabs {
@@ -75,18 +90,26 @@
 
 .cardList {
   display: flex;
+  text-align: center;
+  justify-content: flex-start;
 }
 
 .cardList > li {
-  border: 3px solid white;
-  text-align: center;
-  justify-content: center;
+  border-radius: 5px;
   list-style: none;
-  height: 40px;
-  width: 100px;
-  padding-top: 25px;
+  height: 20px;
+  width: fit-content;
+  margin-right: 20px;
+  padding: 25px 20px;
+  box-shadow: rgba(255, 255, 255, 0.4) 0px 2px 4px,
+    rgba(255, 255, 255, 0.3) 0px 7px 13px -3px,
+    rgba(255, 255, 255, 0.2) 0px -3px 0px inset;
 }
 
 .cardList > li:hover {
   cursor: pointer;
+}
+
+.cardList > li::selection {
+  border: 3px yellow solid;
 }

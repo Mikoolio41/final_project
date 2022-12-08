@@ -7,6 +7,7 @@ import Profile from "./containers/Profile";
 import Navbar from "./components/Navbar";
 import MyPlans from "./containers/MyPlans";
 import Logout from "./containers/Logout";
+import "./styles/App.css";
 
 function App() {
   return (

@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import styles from "../containers/styles/Homepage.module.css";
 
 function RegisterBtn() {
   let navigate = useNavigate();
@@ -9,7 +10,7 @@ function RegisterBtn() {
         onClick={() => {
           navigate("/register");
         }}
-        className="registerBtn button-64"
+        className={`${styles.registerBtn}, ${styles.button64}`}
       >
         <span className="text">Sign Up</span>
       </button>

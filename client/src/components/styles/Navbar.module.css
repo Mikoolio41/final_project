@@ -39,11 +39,10 @@
   font-size: 2em;
   padding: 10px 20px;
   text-decoration: none;
+  letter-spacing: 3px;
 }
 
-/* 48em = 768px */
-/* 
-@media (min-width: 48em) {
+@media (min-width: 1px) {
   .header li {
     float: left;
   }
@@ -58,4 +57,4 @@
   .header .menu-icon {
     display: none;
   }
-} */
+}

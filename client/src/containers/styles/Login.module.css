@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap");
+
 .loginForm {
   display: flex;
   justify-content: center;
@@ -9,15 +11,15 @@
   border-radius: 20px;
   box-sizing: border-box;
   height: fit-content;
-  margin-top: 20%;
+  margin-top: 10%;
   padding: 20px;
   width: 500px;
-  font-family: "Roboto Mono";
+  font-family: "Maven Pro", sans-serif;
 }
 
 .titleLogin {
   color: #eee;
-  font-family: sans-serif;
+  font-family: "Maven Pro", sans-serif;
   font-size: 30px;
   font-weight: 600;
   margin-top: 18px;

@@ -1,21 +1,20 @@
-body {
-  background-color: rgb(34, 34, 34);
-  margin: 0;
-}
+@import url("https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap");
 
 .signUpForm {
-  background-color: rgba(34, 37, 71);
+  display: flex;
   justify-content: center;
-  border-radius: 20px;
-  box-sizing: border-box;
-  height: fit-content;
-  margin-top: 10%;
-  padding: 20px;
-  width: 850px;
-  font-family: "Roboto Mono";
+  text-align: center;
 }
 
 .form1 {
+  background-color: rgba(34, 37, 71);
+  border-radius: 20px;
+  box-sizing: border-box;
+  height: fit-content;
+  margin-top: 5%;
+  padding: 20px;
+  width: 850px;
+  font-family: "Maven Pro", sans-serif;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(5, 1fr);
@@ -25,7 +24,7 @@ body {
 
 .titleRegister {
   color: #eee;
-  font-family: sans-serif;
+  font-family: "Maven Pro", sans-serif;
   font-size: 30px;
   font-weight: 600;
   margin-top: 18px;
@@ -77,7 +76,7 @@ body {
 
 .placeholder {
   color: #65657b;
-  font-family: sans-serif;
+  font-family: "Maven Pro", sans-serif;
   left: 55px;
   line-height: 14px;
   pointer-events: none;

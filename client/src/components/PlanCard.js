@@ -27,7 +27,7 @@ function PlanCard() {
   if (numberPlans) {
     console.log(numberPlans);
     return (
-      <div>
+      <div className={styles.container}>
         <Tabs>
           <TabList className={styles.cardList}>
             {numberPlans.map((item, index) => {
