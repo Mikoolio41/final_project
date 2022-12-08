@@ -9,14 +9,14 @@
   column-gap: 45px;
   row-gap: 18px;
   color: black;
-  margin-top: 80px;
+  margin-top: 95px;
   border-radius: 5px;
   position: relative;
-  left: 50%;
-  transform: translateX(-50%);
   justify-content: flex-start;
   font-family: "Roboto Mono";
-  letter-spacing: 1px;
+  letter-spacing: 1.56px;
+  background: #7a6c8b;
+  color: rgb(193, 177, 205);
 }
 .radio {
   margin: 0.5rem;

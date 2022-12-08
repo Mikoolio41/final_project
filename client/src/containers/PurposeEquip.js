@@ -3,8 +3,7 @@ import Equipment from "../components/Equipment";
 import TrainingPurpose from "../components/TrainingPurpose";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import styles from "../containers/styles/Signup.module.css";
+import styles from "../containers/styles/PurposeEquip.module.css";
 
 function Profile() {
   let navigate = useNavigate();
@@ -63,13 +62,13 @@ function Profile() {
   // };
 
   return (
-    <div>
+    <div className={styles.purposeEquipContainer}>
       <TrainingPurpose handleChange={getInfoTarget} />
       <Equipment handleChange={getInfoEquip} />{" "}
-      {/* <button className={styles.navigateBtn} onClick={insertUserTarget}>
-        Take me to my plan!
-      </button> */}
-      <button className={styles.createBtn} onClick={createEquipPlan}>
+      <button
+        className={`${styles.bn632Hover} ${styles.bn20}`}
+        onClick={createEquipPlan}
+      >
         Create My Plan!
       </button>
     </div>
