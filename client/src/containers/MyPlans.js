@@ -6,7 +6,7 @@ import styles from "../components/styles/PlanCard.module.css";
 function MyPlans() {
   return (
     <>
-      <h1>MY PLANS</h1>
+      <h1 className={styles.plansHeader}>MY PLANS</h1>
       <div className={styles.App}>
         <PlanCard />
       </div>

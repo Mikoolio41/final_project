@@ -9,10 +9,6 @@ function Navbar() {
         <Link to="/" className={styles.logo}>
           WorkItOut
         </Link>
-        <input className={styles.menuBtn} type="checkbox" id={styles.menuBtn} />
-        <label className={styles.menuIcon} for={styles.menuBtn}>
-          <span className={styles.navicon}></span>
-        </label>
         <ul className={styles.menu}>
           <li>
             <Link to="/plan">My Plans</Link>

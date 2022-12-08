@@ -1,13 +1,21 @@
+.plansHeader {
+  color: red;
+  margin: 90px 30px;
+  display: flex;
+  justify-content: flex-start;
+}
+
 .App {
   font-family: sans-serif;
   background: #1c1d1f;
-  background: #525252;
+  /* background: #525252; */
   color: white;
   height: fit-content;
   width: fit-content;
   box-sizing: border-box;
-  margin-top: 90px;
+  /* margin-top: 90px; */
   display: flex;
+  justify-content: center;
   /* flex-direction: column; */
   /* justify-content: flex-start; */
 }
