@@ -17,7 +17,6 @@ function Profile() {
       selectEquip.splice(selectEquip.indexOf(e.target.value), 1);
     }
     setSelectEquip(selectEquip);
-    // console.log(selectEquip);
   };
 
   const getInfoTarget = (e) => {
@@ -41,25 +40,6 @@ function Profile() {
       navigate("/plan");
     }
   };
-
-  // const insertUserTarget = async () => {
-  //   // console.log(infoTarget);
-  //   const result = await fetch("/user_target", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({
-  //       user_id: sessionStorage.getItem("userid"),
-  //       target_id: infoTarget,
-  //     }),
-  //   });
-  //   let targetSelected = await result.text();
-  //   if (targetSelected === "target inserted") {
-  //     console.log("succeeded");
-  //   }
-  //   navigate("/plan");
-  // };
 
   return (
     <div className={styles.purposeEquipContainer}>

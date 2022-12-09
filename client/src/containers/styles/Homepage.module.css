@@ -1,9 +1,8 @@
 .container {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   background-image: url(../../assets/BackToGymSWEAT_enf1f07a7f6f79e7b8807d2436a6ae8e8b.jpg);
   display: flex;
-  height: 710px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

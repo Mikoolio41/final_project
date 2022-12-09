@@ -1,8 +1,20 @@
 body {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
-  background-image: url(../assets/BackToGymSWEAT_enf1f07a7f6f79e7b8807d2436a6ae8e8b.jpg);
-  height: 710px;
+  background-image: linear-gradient(
+    330deg,
+    hsl(274deg 40% 47%) 0%,
+    hsl(276deg 36% 55%) 10%,
+    hsl(277deg 36% 63%) 24%,
+    hsl(278deg 37% 71%) 40%,
+    hsl(279deg 39% 79%) 56%,
+    hsl(280deg 42% 87%) 69%,
+    hsl(269deg 43% 89%) 79%,
+    hsl(259deg 44% 91%) 87%,
+    hsl(250deg 42% 92%) 92%,
+    hsl(240deg 37% 94%) 97%,
+    hsl(233deg 31% 95%) 100%
+  );
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

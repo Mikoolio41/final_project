@@ -18,7 +18,14 @@
 
 .App {
   font-family: "Maven Pro", sans-serif;
-  background: #5c4871;
+  /* background: #5c4871; */
+  background: rgb(0, 3, 36);
+  background: linear-gradient(
+    170deg,
+    rgba(0, 3, 36, 1) 0%,
+    rgba(101, 9, 121, 1) 51%,
+    rgb(60, 6, 84) 100%
+  );
   color: rgb(193, 177, 205);
   height: fit-content;
   width: fit-content;
