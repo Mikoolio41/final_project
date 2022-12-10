@@ -7,9 +7,9 @@ function MyPlans() {
   return (
     <motion.div
       className={styles.plancardHeaderContainer}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.2 } }}
     >
       <h1 className={styles.plansHeader}>MY PLANS</h1>
       <div className={styles.App}>

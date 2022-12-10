@@ -51,9 +51,9 @@ function Signup() {
   return (
     <motion.div
       className={styles.signUpForm}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.2 } }}
     >
       <form className={styles.form1} onSubmit={handleSubmit}>
         <div className={styles.titleRegister}>

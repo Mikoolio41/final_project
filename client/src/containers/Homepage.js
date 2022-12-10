@@ -8,9 +8,9 @@ function Homepage() {
   return (
     <motion.div
       className={styles.container}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.2 } }}
     >
       <div className={styles.buttonContainer}>
         <LoginBtn path="/login" />

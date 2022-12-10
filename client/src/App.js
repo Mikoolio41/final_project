@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import AnimatedRoutes from "./containers/AnimatedRoutes";
 import "./styles/App.css";
-import Footer from "./containers/Footer";
+// import Footer from "./containers/Footer";
 import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {

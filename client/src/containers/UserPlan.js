@@ -33,9 +33,9 @@ function UserPlan(props) {
       return (
         <motion.div
           key={index}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          initial={{ width: 0 }}
+          animate={{ width: "100%" }}
+          exit={{ x: window.innerWidth, transition: { duration: 0.2 } }}
         >
           <Exercise
             name={item.name}
