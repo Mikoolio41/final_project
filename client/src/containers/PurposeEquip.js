@@ -4,6 +4,7 @@ import TrainingPurpose from "../components/TrainingPurpose";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../containers/styles/PurposeEquip.module.css";
+import { motion } from "framer-motion";
 
 function Profile() {
   let navigate = useNavigate();
@@ -42,7 +43,12 @@ function Profile() {
   };
 
   return (
-    <div className={styles.purposeEquipContainer}>
+    <motion.div
+      className={styles.purposeEquipContainer}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <TrainingPurpose handleChange={getInfoTarget} />
       <Equipment handleChange={getInfoEquip} />{" "}
       <button
@@ -51,7 +57,7 @@ function Profile() {
       >
         Create My Plan!
       </button>
-    </div>
+    </motion.div>
   );
 }
 

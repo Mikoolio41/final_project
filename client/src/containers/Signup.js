@@ -2,6 +2,7 @@ import { React, useState } from "react";
 import Gender from "../components/Gender.js";
 import styles from "../containers/styles/Signup.module.css";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 let regexPass = new RegExp("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,15}$");
 
@@ -48,7 +49,12 @@ function Signup() {
   };
 
   return (
-    <div className={styles.signUpForm}>
+    <motion.div
+      className={styles.signUpForm}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <form className={styles.form1} onSubmit={handleSubmit}>
         <div className={styles.titleRegister}>
           Please fill out the info below
@@ -169,7 +175,7 @@ function Signup() {
           Submit
         </button>
       </form>
-    </div>
+    </motion.div>
   );
 }
 

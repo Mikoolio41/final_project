@@ -1,0 +1,14 @@
+.footerDiv {
+  width: 100vw;
+  height: 30px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto 0;
+}
+
+.footerParagraph {
+  color: black;
+  font-size: larger;
+}

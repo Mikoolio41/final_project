@@ -1,6 +1,7 @@
 import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../containers/styles/Login.module.css";
+import { motion } from "framer-motion";
 
 let regexPass = new RegExp("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,15}$");
 
@@ -34,7 +35,12 @@ function Login() {
   };
 
   return (
-    <div className={styles.loginForm}>
+    <motion.div
+      className={styles.loginForm}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <form className={styles.form2} onSubmit={handleSubmit}>
         <div className={styles.titleLogin}>Please login</div>
         {/* <div className="subtitle">Please insert your info:</div> */}
@@ -76,7 +82,7 @@ function Login() {
           Login
         </button>
       </form>
-    </div>
+    </motion.div>
   );
 }
 

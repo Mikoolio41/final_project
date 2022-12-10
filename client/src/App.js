@@ -1,27 +1,17 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Homepage from "./containers/Homepage";
-import Signup from "./containers/Signup";
-import Login from "./containers/Login";
-import PurposeEquip from "./containers/PurposeEquip";
 import Navbar from "./components/Navbar";
-import MyPlans from "./containers/MyPlans";
-import Logout from "./containers/Logout";
+import AnimatedRoutes from "./containers/AnimatedRoutes";
 import "./styles/App.css";
+import Footer from "./containers/Footer";
+import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/register" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/plan" element={<MyPlans />} />
-        <Route path="/profile" element={<PurposeEquip />} />
-        <Route path="/logout" element={<Logout />} />
-      </Routes>
-    </BrowserRouter>
+      <AnimatedRoutes />
+      {/* <Footer /> */}
+    </Router>
   );
 }
 

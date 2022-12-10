@@ -1,6 +1,7 @@
 import React from "react";
 import Exercise from "../components/Exercise";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 function UserPlan(props) {
   const [viewUserPlan, setViewUserPlan] = useState();
@@ -30,7 +31,12 @@ function UserPlan(props) {
     console.log(viewUserPlan);
     return viewUserPlan.map((item, index) => {
       return (
-        <div key={index}>
+        <motion.div
+          key={index}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
           <Exercise
             name={item.name}
             equipment={item.equipment}
@@ -41,7 +47,7 @@ function UserPlan(props) {
             rest={item.rest}
             url={item.gifurl}
           />
-        </div>
+        </motion.div>
       );
     });
   } else {
