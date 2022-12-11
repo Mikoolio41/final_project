@@ -2,11 +2,10 @@
 
 .header {
   /* background-color: #fff; */
-  background-image: linear-gradient(
-    330deg,
-    hsl(240deg 37% 94%) 97%,
-    hsl(233deg 31% 95%) 100%
-  );
+  background: rgba(0, 142, 151, 1);
+
+  /* background-color: rgb(255, 255, 255); */
+
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
   position: fixed;
   width: 100%;
@@ -18,20 +17,13 @@
   list-style: none;
   overflow: hidden;
   /* background-color: #fff; */
-  background-image: linear-gradient(
-    330deg,
-    hsl(274deg 40% 47%) 0%,
-    hsl(276deg 36% 55%) 10%,
-    hsl(277deg 36% 63%) 24%,
-    hsl(278deg 37% 71%) 40%,
-    hsl(279deg 39% 79%) 56%,
-    hsl(280deg 42% 87%) 69%,
-    hsl(269deg 43% 89%) 79%,
-    hsl(259deg 44% 91%) 87%,
-    hsl(250deg 42% 92%) 92%,
-    hsl(240deg 37% 94%) 97%,
-    hsl(233deg 31% 95%) 100%
+  background: linear-gradient(
+    90deg,
+    rgba(0, 142, 151, 1) 0%,
+    rgba(95, 158, 160, 1) 51%,
+    rgba(102, 153, 204, 1) 100%
   );
+  /* background-color: white; */
 }
 
 .header li a {

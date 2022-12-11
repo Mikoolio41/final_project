@@ -49,7 +49,13 @@ function Profile() {
       animate={{ width: "100%" }}
       exit={{ x: window.innerWidth, transition: { duration: 0.2 } }}
     >
+      <h1 className={`${styles.headers} ${styles.headerGoal}`}>
+        What is my goal?
+      </h1>
       <TrainingPurpose handleChange={getInfoTarget} />
+      <h1 className={`${styles.headers} ${styles.headerEquip}`}>
+        What do i own at home?
+      </h1>
       <Equipment handleChange={getInfoEquip} />{" "}
       <button
         className={`${styles.bn632Hover} ${styles.bn20}`}
