@@ -2,10 +2,10 @@
 
 .header {
   /* background-color: #fff; */
-  background: rgba(0, 142, 151, 1);
+  background: #008e97;
 
   /* background-color: rgb(255, 255, 255); */
-
+  /* text-shadow: 3px 4px 6px rgba(3, 2, 4, 0.55); */
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
   position: fixed;
   width: 100%;
@@ -20,8 +20,8 @@
   background: linear-gradient(
     90deg,
     rgba(0, 142, 151, 1) 0%,
-    rgba(95, 158, 160, 1) 51%,
-    rgba(102, 153, 204, 1) 100%
+    #5f9ea0 51%,
+    #6699cc 100%
   );
   /* background-color: white; */
 }
@@ -33,7 +33,7 @@
   color: #551a8b;
   font-weight: bold;
   letter-spacing: 3px;
-  font-size: larger;
+  font-size: 20px;
   float: right;
   transition: transform 250ms;
   border-radius: 2px;
