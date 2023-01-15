@@ -1,4 +1,4 @@
-const { db } = require("../connections/local-heroku-db");
+const { db } = require("../connections/fitAmigo-heroku-db");
 
 //generic functions for getting info from db
 const getData = (table, property, where) => {
