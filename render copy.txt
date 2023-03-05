@@ -10,18 +10,18 @@ services:
     numInstances: 1
     envVars:
       - key: DB_HOST # Imported from Heroku app
-        value: db.hwyijwpxetskukpvszof.supabase.co
+        value: dpg-ce0f76la4996ndrm1ogg-a.ohio-postgres.render.com
         # value: ec2-34-227-120-79.compute-1.amazonaws.com
       - key: DB_NAME # Imported from Heroku app
-        value: postgres
+        value: workitout
         # value: d3pgoubdf96foh
       - key: DB_PASS # Imported from Heroku app
-        value: Mb5408013!!
+        value: M1S9jLfSKrS2yWcyestZIHCkLHfjIpMI
         # value: 07caa5d5eeb535fe2a2bb192dcda6d5c2718596f44198674701f77d724907025
       - key: DB_PORT # Imported from Heroku app
         value: 5432
       - key: DB_USER # Imported from Heroku app
-        value: postgres
+        value: mikoolio41
         # value: ulwombmnvgapvs
       - key: DATABASE_URL # Render PostgreSQL database
         fromDatabase:
